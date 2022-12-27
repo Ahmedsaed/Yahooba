@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
 class Card
@@ -124,7 +124,101 @@ public:
 // Explosive Monsters ~END~ -------------------------------------------------------------------------
 
 
-// Hunter Type (High damage, low health)
+// hunter Type (High damage, low health) --------------------------------------------------
+
+// hunter #1
+class Yogi: public Card {
+public:
+    Yogi()
+    {
+        name="Yogi";
+        type = "Hunter";
+        damage = 350;
+        health = 189;
+        cout << setw(10) << name << " has been summoned\n";
+    }
+
+    ~Yogi()
+    {
+        cout << name << " has been destroyed\n";
+    }
+};
+
+// hunter #2
+
+class GoGo: public Card {
+public:
+    GoGo()
+    {
+        name="GoGo";
+        type = "Hunter";
+        damage = 400;
+        health = 200;
+        cout << setw(10) << name << " has been summoned\n";
+    }
+
+    ~GoGo()
+    {
+        cout << name << " has been destroyed\n";
+    }
+};
+
+//hunter #3
+class Leo: public Card {
+public:
+    Leo()
+    {
+        name="Leo";
+        type = "Hunter";
+        damage = 390;
+        health = 193;
+        cout << setw(10) << name << " has been summoned\n";
+    }
+
+    ~Leo()
+    {
+        cout << name << " has been destroyed\n";
+    }
+};
+
+//hunter #4
+class Avatar: public Card {
+public:
+    Avatar()
+    {
+        name="Avatar";
+        type = "Hunter";
+        damage = 380;
+        health = 190;
+        cout << setw(10) << name << " has been summoned\n";
+    }
+
+    ~Avatar()
+    {
+        cout << name << " has been destroyed\n";
+    }
+};
+
+//hunter #5
+class Vendora: public Card {
+public:
+    Vendora()
+    {
+        name="Vendora";
+        type = "Hunter";
+        damage = 369;
+        health = 196;
+        cout << setw(10) << name << " has been summoned\n";
+    }
+
+    ~Vendora()
+    {
+        cout << name << " has been destroyed\n";
+    }
+};
+
+
+// hunter  Monsters ~END~ -------------------------------------------------------------------------
 
 // Giants Type (low damage, high health)
 
