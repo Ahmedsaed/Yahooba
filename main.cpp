@@ -31,10 +31,11 @@ public:
     }
 };
 
-// Explosive Type (High damage, medium health) --------------------------------------------------
+// Explosive Type (High damage 250-350 , medium health 300-450) --------------------------------------------------
 // Explosive #1
 class Bomba: public Card {
 public:
+
     Bomba()
     {
         name="Bomba";
@@ -124,7 +125,7 @@ public:
 // Explosive Monsters ~END~ -------------------------------------------------------------------------
 
 
-// hunter Type (High damage, low health) --------------------------------------------------
+// hunter Type (High damage 300-400, low health 180-200) --------------------------------------------------
 
 // hunter #1
 class Yogi: public Card {
@@ -220,9 +221,107 @@ public:
 
 // hunter  Monsters ~END~ -------------------------------------------------------------------------
 
-// Giants Type (low damage, high health)
+// Giants Type (low damage 50-75, high health 1000-1500) --------------------------------------------------
 
-// Warrior Type (medium damage, medium health)
+//Giant #1
+class Golem: public Card {
+public:
+
+    Golem()
+    {
+        name="Golem";
+        type = "Giant";
+        damage = 50;
+        health = 1500;
+        cout << setw(10) << name << " has been summoned\n";
+    }
+
+    ~Golem()
+    {
+        cout << name << " has been destroyed\n";
+    }
+};
+
+//Giant #2
+class Yeti: public Card {
+public:
+
+    Yeti()
+    {
+        name="Yeti";
+        type = "Giant";
+        damage = 55;
+        health = 1400;
+        cout << setw(10) << name << " has been summoned\n";
+    }
+
+    ~Yeti()
+    {
+        cout << name << " has been destroyed\n";
+    }
+};
+
+//Giant #3
+class Grimm: public Card {
+public:
+
+    Grimm()
+    {
+        name="Grimm";
+        type = "Giant";
+        damage = 60;
+        health = 1300;
+        cout << setw(10) << name << " has been summoned\n";
+    }
+
+    ~Grimm()
+    {
+        cout << name << " has been destroyed\n";
+    }
+};
+
+//Giant #4
+class PEKKA: public Card {
+public:
+
+    PEKKA()
+    {
+        name="PEKKA";
+        type = "Giant";
+        damage = 65;
+        health = 1200;
+        cout << setw(10) << name << " has been summoned\n";
+    }
+
+    ~PEKKA()
+    {
+        cout << name << " has been destroyed\n";
+    }
+};
+
+//Giant #5
+class Colossal: public Card {
+public:
+
+    Colossal()
+    {
+        name="Colossal";
+        type = "Giant";
+        damage = 75;
+        health = 1000;
+        cout << setw(10) << name << " has been summoned\n";
+    }
+
+    ~Colossal()
+    {
+        cout << name << " has been destroyed\n";
+    }
+};
+
+// Giant  Monsters ~END~ -------------------------------------------------------------------------
+
+
+// Warrior Type (medium damage 185-200, medium health 300-500)
 
 int main()
 {
