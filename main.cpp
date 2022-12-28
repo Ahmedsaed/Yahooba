@@ -320,8 +320,98 @@ public:
 
 // Giant  Monsters ~END~ -------------------------------------------------------------------------
 
-
 // Warrior Type (medium damage 185-200, medium health 300-500)
+// Warrior 1
+class Ethan: public Card {
+public:
+    Ethan()
+    {
+        name="Ethan";
+        type = "Warrior";
+        damage = 185;
+        health = 450;
+        cout << setw(10) << name << " has been summoned\n";
+    }
+
+    ~Ethan()
+    {
+        cout << name << " has been destroyed\n";
+    }
+};
+
+//Warrior 2 
+class Harold: public Card {
+public:
+    Harold()
+    {
+        name="Harold";
+        type = "Warrior";
+        damage = 192;
+        health = 400;
+        cout << setw(10) << name << " has been summoned\n";
+    }
+
+    ~Harold()
+    {
+        cout << name << " has been destroyed\n";
+    }
+};
+
+//Warrior 3
+class Kane: public Card {
+public:
+    Kane()
+    {
+        name="Kane";
+        type = "Warrior";
+        damage = 200;
+        health = 300;
+        cout << setw(10) << name << " has been summoned\n";
+    }
+
+    ~Kane()
+    {
+        cout << name << " has been destroyed\n";
+    }
+};
+
+// Warrior 4
+class Lewis: public Card {
+public:
+    Lewis()
+    {
+        name="Lewis";
+        type = "Warrior";
+        damage = 190;
+        health = 350;
+        cout << setw(10) << name << " has been summoned\n";
+    }
+
+    ~Lewis()
+    {
+        cout << name << " has been destroyed\n";
+    }
+};
+
+// Warrior 5
+class Liam: public Card {
+public:
+    Liam()
+    {
+        name="Liam";
+        type = "Warrior";
+        damage = 200;
+        health = 320;
+        cout << setw(10) << name << " has been summoned\n";
+    }
+
+    ~Liam()
+    {
+        cout << name << " has been destroyed\n";
+    }
+};
+
+// Warriors ~END~ -------------------------------------------------------------------------
 
 int main()
 {
