@@ -42,7 +42,7 @@ public:
         type = "Explosive";
         damage = 200;
         health = 425;
-        cout << setw(10) << name << " has been summoned\n";
+        cout <<  name << " has been summoned\n";
     }
 
     ~Bomba()
@@ -60,7 +60,7 @@ public:
         type = "Explosive";
         damage = 350;
         health = 225;
-        cout << setw(10) << name << " has been summoned\n";
+        cout <<  name << " has been summoned\n";
     }
 
     ~Nuker()
@@ -78,7 +78,7 @@ public:
         type = "Explosive";
         damage = 450;
         health = 100;
-        cout << setw(10) << name << " has been summoned\n";
+        cout <<  name << " has been summoned\n";
     }
 
     ~Detonator()
@@ -96,7 +96,7 @@ public:
         type = "Explosive";
         damage = 275;
         health = 325;
-        cout << setw(10) << name << " has been summoned\n";
+        cout <<  name << " has been summoned\n";
     }
 
     ~Pop()
@@ -114,7 +114,7 @@ public:
         type = "Explosive";
         damage = 300;
         health = 300;
-        cout << setw(10) << name << " has been summoned\n";
+        cout <<  name << " has been summoned\n";
     }
 
     ~Eradicator()
@@ -136,7 +136,7 @@ public:
         type = "Hunter";
         damage = 350;
         health = 189;
-        cout << setw(10) << name << " has been summoned\n";
+        cout <<  name << " has been summoned\n";
     }
 
     ~Yogi()
@@ -155,7 +155,7 @@ public:
         type = "Hunter";
         damage = 400;
         health = 200;
-        cout << setw(10) << name << " has been summoned\n";
+        cout <<  name << " has been summoned\n";
     }
 
     ~GoGo()
@@ -173,7 +173,7 @@ public:
         type = "Hunter";
         damage = 390;
         health = 193;
-        cout << setw(10) << name << " has been summoned\n";
+        cout <<  name << " has been summoned\n";
     }
 
     ~Leo()
@@ -191,7 +191,7 @@ public:
         type = "Hunter";
         damage = 380;
         health = 190;
-        cout << setw(10) << name << " has been summoned\n";
+        cout <<  name << " has been summoned\n";
     }
 
     ~Avatar()
@@ -209,7 +209,7 @@ public:
         type = "Hunter";
         damage = 369;
         health = 196;
-        cout << setw(10) << name << " has been summoned\n";
+        cout <<  name << " has been summoned\n";
     }
 
     ~Vendora()
@@ -233,7 +233,7 @@ public:
         type = "Giant";
         damage = 50;
         health = 1500;
-        cout << setw(10) << name << " has been summoned\n";
+        cout <<  name << " has been summoned\n";
     }
 
     ~Golem()
@@ -252,7 +252,7 @@ public:
         type = "Giant";
         damage = 55;
         health = 1400;
-        cout << setw(10) << name << " has been summoned\n";
+        cout <<  name << " has been summoned\n";
     }
 
     ~Yeti()
@@ -271,7 +271,7 @@ public:
         type = "Giant";
         damage = 60;
         health = 1300;
-        cout << setw(10) << name << " has been summoned\n";
+        cout <<  name << " has been summoned\n";
     }
 
     ~Grimm()
@@ -290,7 +290,7 @@ public:
         type = "Giant";
         damage = 65;
         health = 1200;
-        cout << setw(10) << name << " has been summoned\n";
+        cout <<  name << " has been summoned\n";
     }
 
     ~PEKKA()
@@ -309,7 +309,7 @@ public:
         type = "Giant";
         damage = 75;
         health = 1000;
-        cout << setw(10) << name << " has been summoned\n";
+        cout <<  name << " has been summoned\n";
     }
 
     ~Colossal()
@@ -330,7 +330,7 @@ public:
         type = "Warrior";
         damage = 185;
         health = 450;
-        cout << setw(10) << name << " has been summoned\n";
+        cout <<  name << " has been summoned\n";
     }
 
     ~Ethan()
@@ -348,7 +348,7 @@ public:
         type = "Warrior";
         damage = 192;
         health = 400;
-        cout << setw(10) << name << " has been summoned\n";
+        cout <<  name << " has been summoned\n";
     }
 
     ~Harold()
@@ -366,7 +366,7 @@ public:
         type = "Warrior";
         damage = 200;
         health = 300;
-        cout << setw(10) << name << " has been summoned\n";
+        cout <<  name << " has been summoned\n";
     }
 
     ~Kane()
@@ -384,7 +384,7 @@ public:
         type = "Warrior";
         damage = 190;
         health = 350;
-        cout << setw(10) << name << " has been summoned\n";
+        cout <<  name << " has been summoned\n";
     }
 
     ~Lewis()
@@ -402,7 +402,7 @@ public:
         type = "Warrior";
         damage = 200;
         health = 320;
-        cout << setw(10) << name << " has been summoned\n";
+        cout <<  name << " has been summoned\n";
     }
 
     ~Liam()
@@ -418,10 +418,10 @@ public:
 class Player
 {
     public:
+
     string name;
-    string monsters[5];
-    
-    Card *cards[5];    
+    Card* p = new Card[5];
+        
 
     void setName()
     {
@@ -432,164 +432,153 @@ class Player
     {
         cout << name << endl;
     }
-
-    void pickMonsters()
-    {
-        cout << "Choose 5 Monsters:              **first letter MUST be a Capital letter** " << endl;
-        
-        for (int i = 0; i < 5; i++)
-        {
-            cin >> monsters[i];
-        }
-    }
-
-    void setCards()
-    {
-        for (int i = 0; i < 5; i++)
-        {
-            switch(monsters[i])
-            {
-                case "Bomba":
-                    Bomba Bomba;
-                    monsters[i] = Bomba;
-                    break;
-                
-                case "Nuker":
-                    Nuker Nuker;
-                    monsters[i] = Nuker;
-                    break;
-                
-                case "Detonator":
-                    Detonator Detonator;
-                    monsters[i] = Detonator;
-                    break;
-                
-                case "Pop":
-                    Pop Pop;
-                    monsters[i] = Pop;
-                    break;
-                
-                case "Eradicator":
-                    Eradicator Eradicator;
-                    monsters[i] = Eradicator;
-                    break;
-                
-                case "Yogi":
-                    Yogi Yogi;
-                    monsters[i] = Yogi;
-                    break;
-
-                case "GoGo":
-                    GoGo GoGo;
-                    monsters[i] = GoGo;
-                    break;
-                
-                case "Leo":
-                    Leo Leo;
-                    monsters[i] = Leo;
-                    break;
-                
-                case "Avatar":
-                    Avatar Avatar;
-                    monsters[i] = Avatar;
-                    break;
-                
-                case "Vendora":
-                    Vendora Vendora;
-                    monsters[i] = Vendora;
-                    break;
-                
-                case "Golem":
-                    Golem Golem;
-                    monsters[i] = Golem;
-                    break;
-                
-                case "Yeti":
-                    Yeti Yeti;
-                    monsters[i] = Yeti;
-                    break;
-                
-                case "Grimm":
-                    Grimm Grimm;
-                    monsters[i] = Grimm;
-                    break;
-                
-                case "PEKKA":
-                    PEKKA PEKKA;
-                    monsters[i] = PEKKA;
-                    break;
-                
-                case "Colossal":
-                    Colossal Colossal;
-                    monsters[i] = Colossal;
-                    break;
-                
-                case "Ethan":
-                    Ethan Ethan;
-                    monsters[i] = Ethan;
-                    break;
-                
-                case "Harold":
-                    Harold Harold;
-                    monsters[i] = Harold;
-                    break;
-                
-                case "Kane":
-                    Kane Kane;
-                    monsters[i] = Kane;
-                    break;
-                
-                case "Lewis":
-                    Lewis Lewis;
-                    monsters[i] = Lewis;
-                    break;
-                
-                case "Liam":
-                    Liam Liam;
-                    monsters[i] = Liam;
-                    break;
-
-            }  
-        }
-        
-    }
-
 };
 
-
+void displayCards(); 
 
 int main()
-{
-    // cout << "You summoned a monster: \n";
-    // Bomba * us = new Bomba;
-    // cout << "Enemy has summoned a monster: \n";
-    // Bomba * monster2 = new Bomba;
-    // cout << "Enemy has decided to attack!\n";
-    // cout << us->name << " has been attacked by opposing " << monster2->name << "\n";
-    // us->setHealth(monster2->power);
-    // if(us->defense <= 0) delete us;
-
-
-    // --------------------------------
-
-    int round = 0, score = 0;
-
-    // assign cards for players (randomly)
+{   
+    int num, i = 0;
+    Player user1,user2;
     
-
-    while(round < 5) {     
-        // each round both players pick a card
-
-        // calculate the winning card
-
-        // remove the cards from player's deck 
-
-        // update the score
-        
-
-        round++;
+    user1.setName();
+    displayCards();
+    while(i < 5 && cin >> num)
+    {
+        if(num > 0 && num < 21)
+        {
+            switch (num)
+            {
+                case 1:
+                {
+                    Card *bomba = new Bomba();
+                    user1.p[i] = *bomba;
+                    break;
+                }
+                case 2:
+                {
+                    Card *nuker = new Nuker();
+                    user1.p[i] = *nuker;
+                    break;
+                }
+                case 3:
+                {
+                    Card *detonator = new Detonator();
+                    user1.p[i] = *detonator;
+                    break;
+                }
+                case 4:
+                {
+                    Card *pop = new Pop();
+                    user1.p[i] = *pop;
+                    break;
+                }
+                case 5:
+                {
+                    Card *eradicator = new Eradicator();
+                    user1.p[i] = *eradicator;
+                    break;
+                }   
+                case 6:
+                {
+                    Card *yogi = new Yogi();
+                    user1.p[i] = *yogi;
+                    break;
+                }
+                case 7:
+                {
+                    Card *gogo = new GoGo();
+                    user1.p[i] = *gogo;
+                    break;
+                }
+                case 8:
+                {
+                    Card *leo = new Leo(); 
+                    user1.p[i] = *leo;
+                    break;
+                }
+                case 9:
+                {
+                    Card *avatar = new Avatar();
+                    user1.p[i] = *avatar;
+                    break;
+                }
+                case 10:
+                {
+                    Card *vendora = new Vendora();
+                    user1.p[i] = *vendora;
+                    break;
+                }
+                case 11:
+                {
+                    Card *golem = new Golem();
+                    user1.p[i] = *golem;
+                    break;
+                }
+                case 12:
+                {
+                    Card *yeti = new Yeti();
+                    user1.p[i] = *yeti;
+                    break;
+                }
+                case 13:
+                {
+                    Card *grimm = new Grimm();
+                    user1.p[i] = *grimm;
+                    break;
+                }
+                case 14:
+                {
+                    Card *pekka = new PEKKA();
+                    user1.p[i] = *pekka;
+                    break;
+                }
+                case 15:
+                {
+                    Card *colossal = new Colossal;
+                    user1.p[i] = *colossal;
+                    break;
+                }
+                case 16:
+                {
+                    Card *ethan = new Ethan;
+                    user1.p[i] = *ethan;
+                    break;
+                }
+                case 17:
+                {
+                    Card *harold = new Harold;
+                    user1.p[i] = *harold;
+                    break;
+                }
+                case 18:
+                {
+                    Card *kane = new Kane;
+                    user1.p[i] = *kane;
+                    break;
+                }
+                case 19:
+                {
+                    Card *lewis = new Lewis;
+                    user1.p[i] = *lewis;
+                    break;
+                }
+                case 20:
+                {
+                    Card *liam = new Liam;
+                    user1.p[i] = *liam;
+                    break;
+                }
+            }
+            i++;
+        }
+        else { cout << "You are out of boundaries! Choose again.\n"; }
     }
+}
 
-    // announce the winner (highest score)
-
-}   
+void displayCards()
+{
+    cout << "Choose 5 Monsters:\n (1) Bomba, (2) Nuker, (3) Detonator, (4) Pop, (5) Eradicator ";
+    cout << "(6) Yogi, (7) GoGo, (8) Leo, (9) Avatar, (10) Vendora\n (11) Golem, (12) Yeti, (13) Grimm ";
+    cout << "(14) PEKKA, (15) Colossal, (16) Ethan, (17) Harold, (18) Kane, (19) Lewis, (20) Liam\n";
+}
