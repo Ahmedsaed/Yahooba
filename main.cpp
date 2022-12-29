@@ -419,6 +419,7 @@ class Player
 {
     public:
 
+
     string name;
     Card* p = new Card[5];
         
