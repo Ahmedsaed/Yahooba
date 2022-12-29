@@ -413,6 +413,151 @@ public:
 
 // Warriors ~END~ -------------------------------------------------------------------------
 
+
+//Demo of Users class ~start~ ---------------------------------------------------------------------------
+class Player
+{
+    public:
+    string name;
+    string monsters[5];
+    
+    Card *cards[5];    
+
+    void setName()
+    {
+        cout << "Enter your name: "; cin >> name; cout << "\n";
+    }
+
+    void getName()
+    {
+        cout << name << endl;
+    }
+
+    void pickMonsters()
+    {
+        cout << "Choose 5 Monsters:              **first letter MUST be a Capital letter** " << endl;
+        
+        for (int i = 0; i < 5; i++)
+        {
+            cin >> monsters[i];
+        }
+    }
+
+    void setCards()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            switch(monsters[i])
+            {
+                case "Bomba":
+                    Bomba Bomba;
+                    monsters[i] = Bomba;
+                    break;
+                
+                case "Nuker":
+                    Nuker Nuker;
+                    monsters[i] = Nuker;
+                    break;
+                
+                case "Detonator":
+                    Detonator Detonator;
+                    monsters[i] = Detonator;
+                    break;
+                
+                case "Pop":
+                    Pop Pop;
+                    monsters[i] = Pop;
+                    break;
+                
+                case "Eradicator":
+                    Eradicator Eradicator;
+                    monsters[i] = Eradicator;
+                    break;
+                
+                case "Yogi":
+                    Yogi Yogi;
+                    monsters[i] = Yogi;
+                    break;
+
+                case "GoGo":
+                    GoGo GoGo;
+                    monsters[i] = GoGo;
+                    break;
+                
+                case "Leo":
+                    Leo Leo;
+                    monsters[i] = Leo;
+                    break;
+                
+                case "Avatar":
+                    Avatar Avatar;
+                    monsters[i] = Avatar;
+                    break;
+                
+                case "Vendora":
+                    Vendora Vendora;
+                    monsters[i] = Vendora;
+                    break;
+                
+                case "Golem":
+                    Golem Golem;
+                    monsters[i] = Golem;
+                    break;
+                
+                case "Yeti":
+                    Yeti Yeti;
+                    monsters[i] = Yeti;
+                    break;
+                
+                case "Grimm":
+                    Grimm Grimm;
+                    monsters[i] = Grimm;
+                    break;
+                
+                case "PEKKA":
+                    PEKKA PEKKA;
+                    monsters[i] = PEKKA;
+                    break;
+                
+                case "Colossal":
+                    Colossal Colossal;
+                    monsters[i] = Colossal;
+                    break;
+                
+                case "Ethan":
+                    Ethan Ethan;
+                    monsters[i] = Ethan;
+                    break;
+                
+                case "Harold":
+                    Harold Harold;
+                    monsters[i] = Harold;
+                    break;
+                
+                case "Kane":
+                    Kane Kane;
+                    monsters[i] = Kane;
+                    break;
+                
+                case "Lewis":
+                    Lewis Lewis;
+                    monsters[i] = Lewis;
+                    break;
+                
+                case "Liam":
+                    Liam Liam;
+                    monsters[i] = Liam;
+                    break;
+
+            }  
+        }
+        
+    }
+
+};
+
+
+
 int main()
 {
     // cout << "You summoned a monster: \n";
