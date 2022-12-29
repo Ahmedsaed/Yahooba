@@ -47,7 +47,7 @@ public:
 
     ~Bomba()
     {
-        cout << name << " has been destroyed\n";
+        cout << name << " has Exploded!\n";
     }
 };
 
@@ -65,7 +65,7 @@ public:
 
     ~Nuker()
     {
-        cout << name << " has been destroyed\n";
+        cout << name << " has Exploded!\n";
     }
 };
 
@@ -83,7 +83,7 @@ public:
 
     ~Detonator()
     {
-        cout << name << " has been destroyed\n";
+        cout << name << " has Exploded!\n";
     }
 };
 
@@ -101,7 +101,7 @@ public:
 
     ~Pop()
     {
-        cout << name << " has been destroyed\n";
+        cout << name << " has Exploded!\n";
     }
 };
 
@@ -119,7 +119,7 @@ public:
 
     ~Eradicator()
     {
-        cout << name << " has been destroyed\n";
+        cout << name << " has Exploded!\n";
     }
 };
 // Explosive Monsters ~END~ -------------------------------------------------------------------------
@@ -141,7 +141,7 @@ public:
 
     ~Yogi()
     {
-        cout << name << " has been destroyed\n";
+        cout << name << " has been Hunted!\n";
     }
 };
 
@@ -160,7 +160,7 @@ public:
 
     ~GoGo()
     {
-        cout << name << " has been destroyed\n";
+        cout << name << " has been Hunted!\n";
     }
 };
 
@@ -178,7 +178,7 @@ public:
 
     ~Leo()
     {
-        cout << name << " has been destroyed\n";
+        cout << name << " has been Hunted!\n";
     }
 };
 
@@ -196,7 +196,7 @@ public:
 
     ~Avatar()
     {
-        cout << name << " has been destroyed\n";
+        cout << name << " has been Hunted!\n";
     }
 };
 
@@ -214,7 +214,7 @@ public:
 
     ~Vendora()
     {
-        cout << name << " has been destroyed\n";
+        cout << name << " has been Hunted!\n";
     }
 };
 
@@ -335,7 +335,7 @@ public:
 
     ~Ethan()
     {
-        cout << name << " has been destroyed\n";
+        cout << name << " has been Killed!\n";
     }
 };
 
@@ -353,7 +353,7 @@ public:
 
     ~Harold()
     {
-        cout << name << " has been destroyed\n";
+        cout << name << " has been Killed!\n";
     }
 };
 
@@ -371,7 +371,7 @@ public:
 
     ~Kane()
     {
-        cout << name << " has been destroyed\n";
+        cout << name << " has been Killed!\n";
     }
 };
 
@@ -389,7 +389,7 @@ public:
 
     ~Lewis()
     {
-        cout << name << " has been destroyed\n";
+        cout << name << " has been Killed!\n";
     }
 };
 
@@ -407,7 +407,7 @@ public:
 
     ~Liam()
     {
-        cout << name << " has been destroyed\n";
+        cout << name << " has been Killed!\n";
     }
 };
 
