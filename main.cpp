@@ -88,7 +88,7 @@ public:
 };
 
 // Explosive #4
-class Pop: public Card {
+class Pop: public Card {    
 public:
     Pop()
     {
