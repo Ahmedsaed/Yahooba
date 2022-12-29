@@ -418,10 +418,10 @@ public:
 class Player
 {
     public:
+
     string name;
-    string monsters[5];
-    
-    Card *cards[5];    
+    int num;
+    //Card *cards[5];    
 
     void setName()
     {
@@ -433,120 +433,95 @@ class Player
         cout << name << endl;
     }
 
-    void pickMonsters()
+    void setCards()
     {
-        cout << "Choose 5 Monsters:              **first letter MUST be a Capital letter** " << endl;
+       cout << "Choose 5 Monsters:\n (1) Bomba, (2) Nuker, (3) Detonator, (4) Pop, (5) Eradicator ";
+        cout << "(6) Yogi, (7) GoGo, (8) Leo, (9) Avatar, (10) Vendora, (11) Golem, (12) Yeti, (13) Grimm ";
+        cout << "(14) PEKKA, (15) Colossal, (16) Ethan, (17) Harold, (18) Kane, (19) Lewis, (20) Liam\n";
         
         for (int i = 0; i < 5; i++)
         {
-            cin >> monsters[i];
-        }
-    }
-
-    void setCards()
-    {
-        for (int i = 0; i < 5; i++)
-        {
-            switch(monsters[i])
+            cin >> num;
+            switch(num)
             {
-                case "Bomba":
-                    Bomba Bomba;
-                    monsters[i] = Bomba;
+                case 1:
+                    
                     break;
                 
-                case "Nuker":
-                    Nuker Nuker;
-                    monsters[i] = Nuker;
+                case 2:
+                    
                     break;
                 
-                case "Detonator":
-                    Detonator Detonator;
-                    monsters[i] = Detonator;
+                case 3:
+                    
                     break;
                 
-                case "Pop":
-                    Pop Pop;
-                    monsters[i] = Pop;
+                case 4:
+                    
                     break;
                 
-                case "Eradicator":
-                    Eradicator Eradicator;
-                    monsters[i] = Eradicator;
+                case 5:
+                    
                     break;
                 
-                case "Yogi":
-                    Yogi Yogi;
-                    monsters[i] = Yogi;
+                case 6:
+                    
                     break;
 
-                case "GoGo":
-                    GoGo GoGo;
-                    monsters[i] = GoGo;
+                case 7:
+                    
                     break;
                 
-                case "Leo":
-                    Leo Leo;
-                    monsters[i] = Leo;
+                case 8:
+                    
                     break;
                 
-                case "Avatar":
-                    Avatar Avatar;
-                    monsters[i] = Avatar;
+                case 9:
+                    
                     break;
                 
-                case "Vendora":
-                    Vendora Vendora;
-                    monsters[i] = Vendora;
+                case 10:
+                    
                     break;
                 
-                case "Golem":
-                    Golem Golem;
-                    monsters[i] = Golem;
+                case 11:
+                    
                     break;
                 
-                case "Yeti":
-                    Yeti Yeti;
-                    monsters[i] = Yeti;
+                case 12:
+                    
                     break;
                 
-                case "Grimm":
-                    Grimm Grimm;
-                    monsters[i] = Grimm;
+                case 13:
+                    
                     break;
                 
-                case "PEKKA":
-                    PEKKA PEKKA;
-                    monsters[i] = PEKKA;
+                case 14:
+                    
                     break;
                 
-                case "Colossal":
-                    Colossal Colossal;
-                    monsters[i] = Colossal;
+                case 15:
+                    
                     break;
                 
-                case "Ethan":
-                    Ethan Ethan;
-                    monsters[i] = Ethan;
+                case 16:
+                    
                     break;
                 
-                case "Harold":
-                    Harold Harold;
-                    monsters[i] = Harold;
+                case 17:
+                    
                     break;
                 
-                case "Kane":
-                    Kane Kane;
-                    monsters[i] = Kane;
+                case 18:
+                    
                     break;
                 
-                case "Lewis":
-                    Lewis Lewis;
-                    monsters[i] = Lewis;
+                case 19:
+                    
                     break;
                 
-                case "Liam":
-                    Liam Liam;
-                    monsters[i] = Liam;
+                case 20:
+                    
                     break;
 
             }  
