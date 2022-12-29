@@ -29,6 +29,16 @@ public:
     void printHealth() {
         cout << name << " has " << health << " health points" << endl;
     }
+
+    void callCard(){
+        cout << setw(10) << name << " has been summoned\n";
+    }
+
+    virtual void winMsg()
+    {
+        cout << name << " is the winner!\n";
+    }
+    
 };
 
 // Explosive Type (High damage 250-350 , medium health 300-450) --------------------------------------------------
@@ -42,7 +52,12 @@ public:
         type = "Explosive";
         damage = 200;
         health = 425;
-        cout <<  name << " has been summoned\n";
+    }
+
+    void winMsg()
+    {
+        Card :: winMsg();
+        cout << "Nothing warms an Explosive Monster's cold and undead heart like blowing up his opponents!\n";
     }
 
     ~Bomba()
@@ -60,7 +75,12 @@ public:
         type = "Explosive";
         damage = 350;
         health = 225;
-        cout <<  name << " has been summoned\n";
+    }
+
+    void winMsg()
+    {
+        Card :: winMsg();
+        cout << "Nothing warms an Explosive Monster's cold and undead heart like blowing up his opponents!\n";
     }
 
     ~Nuker()
@@ -78,7 +98,12 @@ public:
         type = "Explosive";
         damage = 450;
         health = 100;
-        cout <<  name << " has been summoned\n";
+    }
+
+    void winMsg()
+    {
+        Card :: winMsg();
+        cout << "Nothing warms an Explosive Monster's cold and undead heart like blowing up his opponents!\n";
     }
 
     ~Detonator()
@@ -96,7 +121,12 @@ public:
         type = "Explosive";
         damage = 275;
         health = 325;
-        cout <<  name << " has been summoned\n";
+    }
+
+    void winMsg()
+    {
+        Card :: winMsg();
+        cout << "Nothing warms an Explosive Monster's cold and undead heart like blowing up his opponents!\n";
     }
 
     ~Pop()
@@ -114,7 +144,12 @@ public:
         type = "Explosive";
         damage = 300;
         health = 300;
-        cout <<  name << " has been summoned\n";
+    }
+
+    void winMsg()
+    {
+        Card :: winMsg();
+        cout << "Nothing warms an Explosive Monster's cold and undead heart like blowing up his opponents!\n";
     }
 
     ~Eradicator()
@@ -136,7 +171,12 @@ public:
         type = "Hunter";
         damage = 350;
         health = 189;
-        cout <<  name << " has been summoned\n";
+    }
+
+    void winMsg()
+    {
+        Card :: winMsg();
+        cout << "Nothing makes a sharpshooting hunter happier than single-mindedly taking down their target!\n";
     }
 
     ~Yogi()
@@ -155,7 +195,12 @@ public:
         type = "Hunter";
         damage = 400;
         health = 200;
-        cout <<  name << " has been summoned\n";
+    }
+
+    void winMsg()
+    {
+        Card :: winMsg();
+        cout << "Nothing makes a sharpshooting hunter happier than single-mindedly taking down their target!\n";
     }
 
     ~GoGo()
@@ -173,7 +218,12 @@ public:
         type = "Hunter";
         damage = 390;
         health = 193;
-        cout <<  name << " has been summoned\n";
+    }
+
+    void winMsg()
+    {
+        Card :: winMsg();
+        cout << "Nothing makes a sharpshooting hunter happier than single-mindedly taking down their target!\n";
     }
 
     ~Leo()
@@ -191,7 +241,12 @@ public:
         type = "Hunter";
         damage = 380;
         health = 190;
-        cout <<  name << " has been summoned\n";
+    }
+
+    void winMsg()
+    {
+        Card :: winMsg();
+        cout << "Nothing makes a sharpshooting hunter happier than single-mindedly taking down their target!\n";
     }
 
     ~Avatar()
@@ -201,18 +256,23 @@ public:
 };
 
 //hunter #5
-class Vendora: public Card {
+class Ventura: public Card {
 public:
-    Vendora()
+    Ventura()
     {
-        name="Vendora";
+        name="Ventura";
         type = "Hunter";
         damage = 369;
         health = 196;
-        cout <<  name << " has been summoned\n";
     }
 
-    ~Vendora()
+    void winMsg()
+    {
+        Card :: winMsg();
+        cout << "Nothing makes a sharpshooting hunter happier than single-mindedly taking down their target!\n";
+    }
+
+    ~Ventura()
     {
         cout << name << " has been Hunted!\n";
     }
@@ -233,7 +293,12 @@ public:
         type = "Giant";
         damage = 50;
         health = 1500;
-        cout <<  name << " has been summoned\n";
+    }
+
+    void winMsg()
+    {
+        Card :: winMsg();
+        cout << "You cannot take down the BIG GUY\n";
     }
 
     ~Golem()
@@ -252,7 +317,12 @@ public:
         type = "Giant";
         damage = 55;
         health = 1400;
-        cout <<  name << " has been summoned\n";
+    }
+
+    void winMsg()
+    {
+        Card :: winMsg();
+        cout << "You cannot take down the BIG GUY\n";
     }
 
     ~Yeti()
@@ -271,7 +341,12 @@ public:
         type = "Giant";
         damage = 60;
         health = 1300;
-        cout <<  name << " has been summoned\n";
+    }
+
+    void winMsg()
+    {
+        Card :: winMsg();
+        cout << "You cannot take down the BIG GUY\n";
     }
 
     ~Grimm()
@@ -290,7 +365,12 @@ public:
         type = "Giant";
         damage = 65;
         health = 1200;
-        cout <<  name << " has been summoned\n";
+    }
+
+    void winMsg()
+    {
+        Card :: winMsg();
+        cout << "You cannot take down the BIG GUY\n";
     }
 
     ~PEKKA()
@@ -309,7 +389,12 @@ public:
         type = "Giant";
         damage = 75;
         health = 1000;
-        cout <<  name << " has been summoned\n";
+    }
+
+    void winMsg()
+    {
+        Card :: winMsg();
+        cout << "You cannot take down the BIG GUY\n";
     }
 
     ~Colossal()
@@ -330,7 +415,12 @@ public:
         type = "Warrior";
         damage = 185;
         health = 450;
-        cout <<  name << " has been summoned\n";
+    }
+
+    void winMsg()
+    {
+        Card :: winMsg();
+        cout << "Release a horde of fearless warriors and enjoy  the mayhem!\n";
     }
 
     ~Ethan()
@@ -348,7 +438,12 @@ public:
         type = "Warrior";
         damage = 192;
         health = 400;
-        cout <<  name << " has been summoned\n";
+    }
+
+    void winMsg()
+    {
+        Card :: winMsg();
+        cout << "Release a horde of fearless warriors and enjoy  the mayhem!\n";
     }
 
     ~Harold()
@@ -366,7 +461,12 @@ public:
         type = "Warrior";
         damage = 200;
         health = 300;
-        cout <<  name << " has been summoned\n";
+    }
+
+    void winMsg()
+    {
+        Card :: winMsg();
+        cout << "Release a horde of fearless warriors and enjoy  the mayhem!\n";
     }
 
     ~Kane()
@@ -384,7 +484,12 @@ public:
         type = "Warrior";
         damage = 190;
         health = 350;
-        cout <<  name << " has been summoned\n";
+    }
+
+    void winMsg()
+    {
+        Card :: winMsg();
+        cout << "Release a horde of fearless warriors and enjoy  the mayhem!\n";
     }
 
     ~Lewis()
@@ -402,7 +507,12 @@ public:
         type = "Warrior";
         damage = 200;
         health = 320;
-        cout <<  name << " has been summoned\n";
+    }
+    
+    void winMsg()
+    {
+        Card :: winMsg();
+        cout << "Release a horde of fearless warriors and enjoy  the mayhem!\n";
     }
 
     ~Liam()
@@ -418,7 +528,6 @@ public:
 class Player
 {
     public:
-
 
     string name;
     Card* p = new Card[5];
@@ -506,8 +615,8 @@ int main()
                 }
                 case 10:
                 {
-                    Card *vendora = new Vendora();
-                    user1.p[i] = *vendora;
+                    Card *ventura = new Ventura();
+                    user1.p[i] = *ventura;
                     break;
                 }
                 case 11:
@@ -575,7 +684,40 @@ int main()
         }
         else { cout << "You are out of boundaries! Choose again.\n"; }
     }
-}
+
+       // cout << "You summoned a monster: \n";
+    // Bomba * us = new Bomba;
+    // cout << "Enemy has summoned a monster: \n";
+    // Bomba * monster2 = new Bomba;
+    // cout << "Enemy has decided to attack!\n";
+    // cout << us->name << " has been attacked by opposing " << monster2->name << "\n";
+    // us->setHealth(monster2->power);
+    // if(us->defense <= 0) delete us;
+
+
+    // --------------------------------
+
+    int round = 0, score = 0;
+
+    // assign cards for players (randomly)
+    
+
+    while(round < 5) {     
+        // each round both players pick a card
+
+        // calculate the winning card
+
+        // remove the cards from player's deck 
+
+        // update the score
+        
+
+        round++;
+    }
+
+    // announce the winner (highest score)
+} 
+// end of main
 
 void displayCards()
 {
