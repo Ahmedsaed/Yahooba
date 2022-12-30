@@ -852,8 +852,8 @@ class Player
         system("clear");
     }
 
-    void printPlayerCards(string p) {
-        cout << endl << p << " Cards:" << endl;
+    void printPlayerCards() {
+        cout << endl << "Your Cards:" << endl;
         for (int i = 0; i < maxNCards; i++) {
             cout << "Card " << i+1 << endl; 
             cards[i].getStats();
@@ -881,8 +881,8 @@ public:
         player.pickCards(player);
         computer.pickRandomCards(computer);
 
-        player.printPlayerCards(player.name);
-        computer.printPlayerCards("computer");
+        player.printPlayerCards();
+        computer.printPlayerCards();
     }
 
     void displayCards()
