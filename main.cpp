@@ -528,9 +528,8 @@ public:
 class Player
 {
     public:
-
     string name;
-    Card* p = new Card[5];
+    Card* cards = new Card[5];
         
 
     void setName()
@@ -554,8 +553,10 @@ int main()
     
     user1.setName();
     displayCards();
-    while(i < 5 && cin >> num)
+    while(i < 5)
     {
+        cout << "Pick card number: ";
+        cin >> num;
         if(num > 0 && num < 21)
         {
             switch (num)
@@ -563,121 +564,121 @@ int main()
                 case 1:
                 {
                     Card *bomba = new Bomba();
-                    user1.p[i] = *bomba;
+                    user1.cards[i] = *bomba;
                     break;
                 }
                 case 2:
                 {
                     Card *nuker = new Nuker();
-                    user1.p[i] = *nuker;
+                    user1.cards[i] = *nuker;
                     break;
                 }
                 case 3:
                 {
                     Card *detonator = new Detonator();
-                    user1.p[i] = *detonator;
+                    user1.cards[i] = *detonator;
                     break;
                 }
                 case 4:
                 {
                     Card *pop = new Pop();
-                    user1.p[i] = *pop;
+                    user1.cards[i] = *pop;
                     break;
                 }
                 case 5:
                 {
                     Card *eradicator = new Eradicator();
-                    user1.p[i] = *eradicator;
+                    user1.cards[i] = *eradicator;
                     break;
                 }   
                 case 6:
                 {
                     Card *yogi = new Yogi();
-                    user1.p[i] = *yogi;
+                    user1.cards[i] = *yogi;
                     break;
                 }
                 case 7:
                 {
                     Card *gogo = new GoGo();
-                    user1.p[i] = *gogo;
+                    user1.cards[i] = *gogo;
                     break;
                 }
                 case 8:
                 {
                     Card *leo = new Leo(); 
-                    user1.p[i] = *leo;
+                    user1.cards[i] = *leo;
                     break;
                 }
                 case 9:
                 {
                     Card *avatar = new Avatar();
-                    user1.p[i] = *avatar;
+                    user1.cards[i] = *avatar;
                     break;
                 }
                 case 10:
                 {
                     Card *ventura = new Ventura();
-                    user1.p[i] = *ventura;
+                    user1.cards[i] = *ventura;
                     break;
                 }
                 case 11:
                 {
                     Card *golem = new Golem();
-                    user1.p[i] = *golem;
+                    user1.cards[i] = *golem;
                     break;
                 }
                 case 12:
                 {
                     Card *yeti = new Yeti();
-                    user1.p[i] = *yeti;
+                    user1.cards[i] = *yeti;
                     break;
                 }
                 case 13:
                 {
                     Card *grimm = new Grimm();
-                    user1.p[i] = *grimm;
+                    user1.cards[i] = *grimm;
                     break;
                 }
                 case 14:
                 {
                     Card *pekka = new PEKKA();
-                    user1.p[i] = *pekka;
+                    user1.cards[i] = *pekka;
                     break;
                 }
                 case 15:
                 {
                     Card *colossal = new Colossal;
-                    user1.p[i] = *colossal;
+                    user1.cards[i] = *colossal;
                     break;
                 }
                 case 16:
                 {
                     Card *ethan = new Ethan;
-                    user1.p[i] = *ethan;
+                    user1.cards[i] = *ethan;
                     break;
                 }
                 case 17:
                 {
                     Card *harold = new Harold;
-                    user1.p[i] = *harold;
+                    user1.cards[i] = *harold;
                     break;
                 }
                 case 18:
                 {
                     Card *kane = new Kane;
-                    user1.p[i] = *kane;
+                    user1.cards[i] = *kane;
                     break;
                 }
                 case 19:
                 {
                     Card *lewis = new Lewis;
-                    user1.p[i] = *lewis;
+                    user1.cards[i] = *lewis;
                     break;
                 }
                 case 20:
                 {
                     Card *liam = new Liam;
-                    user1.p[i] = *liam;
+                    user1.cards[i] = *liam;
                     break;
                 }
             }
@@ -686,7 +687,7 @@ int main()
         else { cout << "You are out of boundaries! Choose again.\n"; }
     }
 
-       // cout << "You summoned a monster: \n";
+    // cout << "You summoned a monster: \n";
     // Bomba * us = new Bomba;
     // cout << "Enemy has summoned a monster: \n";
     // Bomba * monster2 = new Bomba;
@@ -722,7 +723,8 @@ int main()
 
 void displayCards()
 {
-    cout << "Choose 5 Monsters:\n (1) Bomba, (2) Nuker, (3) Detonator, (4) Pop, (5) Eradicator ";
-    cout << "(6) Yogi, (7) GoGo, (8) Leo, (9) Avatar, (10) Vendora\n (11) Golem, (12) Yeti, (13) Grimm ";
-    cout << "(14) PEKKA, (15) Colossal, (16) Ethan, (17) Harold, (18) Kane, (19) Lewis, (20) Liam\n";
+    cout << "Available Cards:\n (1) Bomba, (2) Nuker, (3) Detonator, (4) Pop, (5) Eradicator "
+        << "(6) Yogi, (7) GoGo, (8) Leo, (9) Avatar, (10) Vendora\n (11) Golem, (12) Yeti, (13) Grimm "
+        << "(14) PEKKA, (15) Colossal, (16) Ethan, (17) Harold, (18) Kane, (19) Lewis, (20) Liam\n"
+        << "Choose 5 cards:\n\n";
 }
