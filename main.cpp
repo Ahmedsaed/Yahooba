@@ -535,7 +535,8 @@ class Player
 
     void setName()
     {
-        cout << "Enter your name: "; cin >> name; cout << "\n";
+        string n;
+        cout << "Enter your name: "; getline(cin, n); cout << "\n";
     }
 
     void getName()
