@@ -530,7 +530,7 @@ class Player
     public:
     string name;
     Card* cards = new Card[5];
-    bool pickedMonsters[20]{0};
+    bool pickedCards[20]{0};
 
     Player(int m = 5) {
         maxNCards = m;
@@ -555,7 +555,7 @@ class Player
         {
             cout << "Pick card number: ";
             cin >> num;
-            if(user.pickedMonsters[num])
+            if(user.pickedCards[num])
             {
                 cout << "You've already picked this monster, please pick another one!\n";
                 continue;
@@ -566,140 +566,140 @@ class Player
                 {
                     case 1:
                     {
-                        user.pickedMonsters[1] = 1;
+                        user.pickedCards[1] = 1;
                         Card *bomba = new Bomba();
                         user.cards[i] = *bomba;
                         break;
                     }
                     case 2:
                     {
-                        user.pickedMonsters[2] = 1;
+                        user.pickedCards[2] = 1;
                         Card *nuker = new Nuker();
                         user.cards[i] = *nuker;
                         break;
                     }
                     case 3:
                     {
-                        user.pickedMonsters[3] = 1;
+                        user.pickedCards[3] = 1;
                         Card *detonator = new Detonator();
                         user.cards[i] = *detonator;
                         break;
                     }
                     case 4:
                     {
-                        user.pickedMonsters[4] = 1;
+                        user.pickedCards[4] = 1;
                         Card *pop = new Pop();
                         user.cards[i] = *pop;
                         break;
                     }
                     case 5:
                     {
-                        user.pickedMonsters[5] = 1;
+                        user.pickedCards[5] = 1;
                         Card *eradicator = new Eradicator();
                         user.cards[i] = *eradicator;
                         break;
                     }   
                     case 6:
                     {
-                        user.pickedMonsters[6] = 1;
+                        user.pickedCards[6] = 1;
                         Card *yogi = new Yogi();
                         user.cards[i] = *yogi;
                         break;
                     }
                     case 7:
                     {
-                        user.pickedMonsters[7] = 1;
+                        user.pickedCards[7] = 1;
                         Card *gogo = new GoGo();
                         user.cards[i] = *gogo;
                         break;
                     }
                     case 8:
                     {
-                        user.pickedMonsters[8] = 1;
+                        user.pickedCards[8] = 1;
                         Card *leo = new Leo(); 
                         user.cards[i] = *leo;
                         break;
                     }
                     case 9:
                     {
-                        user.pickedMonsters[9] = 1;
+                        user.pickedCards[9] = 1;
                         Card *avatar = new Avatar();
                         user.cards[i] = *avatar;
                         break;
                     }
                     case 10:
                     {
-                        user.pickedMonsters[10] = 1;
+                        user.pickedCards[10] = 1;
                         Card *ventura = new Ventura();
                         user.cards[i] = *ventura;
                         break;
                     }
                     case 11:
                     {
-                        user.pickedMonsters[11] = 1;
+                        user.pickedCards[11] = 1;
                         Card *golem = new Golem();
                         user.cards[i] = *golem;
                         break;
                     }
                     case 12:
                     {
-                        user.pickedMonsters[12] = 1;
+                        user.pickedCards[12] = 1;
                         Card *yeti = new Yeti();
                         user.cards[i] = *yeti;
                         break;
                     }
                     case 13:
                     {
-                        user.pickedMonsters[13] = 1;
+                        user.pickedCards[13] = 1;
                         Card *grimm = new Grimm();
                         user.cards[i] = *grimm;
                         break;
                     }
                     case 14:
                     {
-                        user.pickedMonsters[14] = 1;
+                        user.pickedCards[14] = 1;
                         Card *pekka = new PEKKA();
                         user.cards[i] = *pekka;
                         break;
                     }
                     case 15:
                     {
-                        user.pickedMonsters[15] = 1;
+                        user.pickedCards[15] = 1;
                         Card *colossal = new Colossal;
                         user.cards[i] = *colossal;
                         break;
                     }
                     case 16:
                     {
-                        user.pickedMonsters[16] = 1;
+                        user.pickedCards[16] = 1;
                         Card *ethan = new Ethan;
                         user.cards[i] = *ethan;
                         break;
                     }
                     case 17:
                     {
-                        user.pickedMonsters[17] = 1;
+                        user.pickedCards[17] = 1;
                         Card *harold = new Harold;
                         user.cards[i] = *harold;
                         break;
                     }
                     case 18:
                     {
-                        user.pickedMonsters[18] = 1;
+                        user.pickedCards[18] = 1;
                         Card *kane = new Kane;
                         user.cards[i] = *kane;
                         break;
                     }
                     case 19:
                     {
-                        user.pickedMonsters[19] = 1;
+                        user.pickedCards[19] = 1;
                         Card *lewis = new Lewis;
                         user.cards[i] = *lewis;
                         break;
                     }
                     case 20:
                     {
-                        user.pickedMonsters[20] = 1;
+                        user.pickedCards[20] = 1;
                         Card *liam = new Liam;
                         user.cards[i] = *liam;
                         break;
@@ -717,7 +717,7 @@ class Player
         while(i < maxNCards)
         {
             num = rand()%20+1;
-            if(user.pickedMonsters[num])
+            if(user.pickedCards[num])
             {
                 continue;
             }
