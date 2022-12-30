@@ -57,7 +57,7 @@ public:
     {
         name="Bomba";
         type = "Explosive";
-        damage = 200;
+        damage = 250;
         health = 425;
     }
 
@@ -81,7 +81,7 @@ public:
         name="Nuker";
         type = "Explosive";
         damage = 350;
-        health = 225;
+        health = 350;
     }
 
     void winMsg()
@@ -103,8 +103,8 @@ public:
     {
         name="Detonator";
         type = "Explosive";
-        damage = 450;
-        health = 100;
+        damage = 350;
+        health = 300;
     }
 
     void winMsg()
@@ -127,7 +127,7 @@ public:
         name="Pop";
         type = "Explosive";
         damage = 275;
-        health = 325;
+        health = 375;
     }
 
     void winMsg()
@@ -150,7 +150,7 @@ public:
         name="Eradicator";
         type = "Explosive";
         damage = 300;
-        health = 300;
+        health = 410;
     }
 
     void winMsg()
@@ -537,7 +537,7 @@ class Player
     public:
     string name;
     bool pickedCards[20]{0};
-    int score;
+    int score = 0;
 
     Player(int m = 5) {
         maxNCards = m;
@@ -549,6 +549,7 @@ class Player
         system(osClearCommand);
         string n;
         cout << "Enter your name: "; getline(cin, n); cout << "\n";
+        name = n;
     }
 
     void getName()
@@ -716,7 +717,6 @@ class Player
             }
             else { cout << "You are out of boundaries! Choose again.\n"; }
         }
-        system(osClearCommand);
     }
 
     void pickRandomCards(Player user) {
@@ -857,7 +857,6 @@ class Player
             }
             else { cout << "You are out of boundaries! Choose again.\n"; }
         }
-        system(osClearCommand);
     }
 
     Card* play() {
@@ -867,7 +866,7 @@ class Player
         
         do
         {
-            cout << "Pick a card to fight: ", cin >> n;
+            cout << "Pick a card from the deck to fight with: ", cin >> n;
             n--;
             c = &cards[n];
         } while (c->played);
@@ -908,7 +907,7 @@ class Player
 
 class Game {
 public:
-    void console() {
+    void run() {
         int nRounds = 5;
         Player player(nRounds), computer(nRounds);
         player.setName();
@@ -918,26 +917,74 @@ public:
         player.pickCards(player);
         computer.pickRandomCards(computer);
 
-        // startGame();
+        continueGame();
         
         while (nRounds--)
         {
             system(osClearCommand);
+
             Card *playerCard = player.play();
             Card *computerCard = computer.playRandom();
+
+            system(osClearCommand);
 
             cout << "Your Card: " << endl;
             playerCard->getStats();
             cout << "Opponent's Card:" << endl;
             computerCard->getStats();
             
-            
+            int result = calculateWinner(playerCard, computerCard);
+            player.score += (result == 1);
+            computer.score += (result == -1);
+
+            continueGame();
         }
+
+        announceTheWinner(&player, &computer);
     }
 
-    void startGame() {
-        system(osClearCommand);
-        cout << "Enter Y to start round? ";
+    void announceTheWinner(Player *player, Player *computer) {
+        if (player->score > computer->score)
+            cout << player->name << " has won the game" << endl;
+        else if (player->score == computer->score) 
+            cout << "The game has ended in a draw" << endl;
+        else 
+            cout << "The opponent has won the game" << endl;;
+
+    }
+
+    int calculateWinner(Card* playerCard, Card* computerCard) {
+        int winner = 0;
+
+        while(true) {
+            playerCard->updateHealth(computerCard->damage);
+            computerCard->updateHealth(playerCard->damage);
+            if (playerCard->health == 0 && computerCard->health == 0) {
+                winner = 0;
+                break;
+            }
+            else if (playerCard->health == 0) {
+                winner = -1;
+                break;
+            }
+            else if (computerCard->health == 0) {
+                winner = 1;
+                break;
+            }
+        }
+
+        if (winner == 1) 
+                cout << "You won the round" << endl;
+            else if (winner == -1)
+                cout << "The opponent won the round" << endl;
+            else
+                cout << "The round ended in a draw" << endl;
+
+        return winner;
+    }
+
+    void continueGame() {
+        cout << endl << "Enter Y to continue: ";
         char ch;
         cin >> ch;
         if (ch != 'y' && ch != 'Y') exit(0);
@@ -952,39 +999,12 @@ public:
             << "Choose 5 cards\n"
             << "--------------\n";
     }
- /* private:
-    Card cards[20] = {Bomba(), Nuker(), Detonator(), Pop(), Eradicator(), Yogi(), GoGo(), Leo(), Avatar(), Ventura(), 
-                    Golem(), Yeti(), Grimm(), PEKKA(), Colossal(), Ethan(), Harold(), Kane(), Lewis(), Liam()}; */
 };
 
 int main()
 {   
     Game game;
 
-    game.console();
-
-    // --------------------------------
-
-    int round = 0, score = 0;
-
-    // assign cards for players (randomly)
-    
-
-    while(round < 5) {     
-        // each round both players pick a card
-
-        // calculate the winning card
-
-        // remove the cards from player's deck 
-
-        // update the score
-        
-
-        round++;
-    }
-
-    // announce the winner (highest score)
+    game.run();
 } 
 // end of main
-
-
