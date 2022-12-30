@@ -11,8 +11,8 @@ public:
     {   
         cout << "His name is " << name << endl;
         cout << "His type is " << type << endl;
-        cout << "Current Health: " << health << "\n";
-        cout << "Attack Power: " << damage << "\n";
+        cout << "Current Health: " << health << endl;
+        cout << "Attack Power: " << damage << endl;
     }    
     
     void printDamage() {
@@ -23,7 +23,7 @@ public:
     {
         cout << name << "'s health has been dropped from " << health;
         health = (health < attack) ? 0 : health - attack;
-        cout << " to " << health << "\n";
+        cout << " to " << health << endl;
     }
 
     void printHealth() {
@@ -539,6 +539,7 @@ class Player
     {
         string n;
         cout << "Enter your name: "; getline(cin, n); cout << "\n";
+        system("clear");
     }
 
     void getName()
@@ -681,6 +682,7 @@ class Player
             }
             else { cout << "You are out of boundaries! Choose again.\n"; }
         }
+        system("clear");
     }
 
     void pickRandomCards(Player user) {
@@ -817,16 +819,22 @@ class Player
             }
             else { cout << "You are out of boundaries! Choose again.\n"; }
         }
+        system("clear");
     }
 
     void printPlayerCards() {
-        for(Card &card: *cards) {
-
+        cout << endl << "PLayer Cards:" << endl;
+        for (int i = 0; i < maxNCards; i++) {
+            cout << "Card " << i << endl; 
+            cards[i].getStats();
         }
     }
+    
+    
     // Card getCard() {
 
     // };
+
     private:
     int maxNCards;
     Card* cards;
@@ -834,6 +842,20 @@ class Player
 
 class Game {
 public:
+
+    void start() {
+        Player player, computer;
+        player.setName();
+
+        displayCards();
+
+        player.pickCards(player);
+        computer.pickRandomCards(computer);
+
+        player.printPlayerCards();
+        computer.printPlayerCards();
+    }
+
     void displayCards()
     {
         cout << "Available Cards:\n (1) Bomba, (2) Nuker, (3) Detonator, (4) Pop, (5) Eradicator "
@@ -846,21 +868,13 @@ public:
 
 int main()
 {   
-    int num, i = 0;
-    Player user1,user2;
     Game game;
+
+    game.start();
     
-    user1.setName();
-    game.displayCards();
-    user1.pickCards(user1);
-    // cout << "You summoned a monster: \n";
-    // Bomba * us = new Bomba;
-    // cout << "Enemy has summoned a monster: \n";
-    // Bomba * monster2 = new Bomba;
-    // cout << "Enemy has decided to attack!\n";
-    // cout << us->name << " has been attacked by opposing " << monster2->name << "\n";
-    // us->setHealth(monster2->power);
-    // if(us->defense <= 0) delete us;
+    // user1.setName();
+    // game.displayCards();
+    // user1.pickCards(user1);
 
 
     // --------------------------------
