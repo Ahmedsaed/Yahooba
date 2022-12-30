@@ -528,9 +528,12 @@ public:
 class Player
 {
     public:
-    string name;
-    Card* cards = new Card[5];
-        
+    string name;    
+
+    Player(int m = 5) {
+        maxNCards = m;
+        cards = new Card[m];
+    }    
 
     void setName()
     {
@@ -545,7 +548,7 @@ class Player
 
     void pickCards(Player user) {
         int i = 0, num = 0;
-        while(i < 5)
+        while(i < maxNCards)
         {
             cout << "Pick card number: ";
             cin >> num;
@@ -682,7 +685,7 @@ class Player
 
     void pickRandomCards(Player user) {
         int i = 0, num = 0;
-        while(i < 5)
+        while(i < maxNCards)
         {
             num = rand()%20+1;
             if(num > 0 && num < 21)
@@ -817,12 +820,16 @@ class Player
     }
 
     void printPlayerCards() {
-        
+        for(Card &card: *cards) {
+
+        }
     }
     // Card getCard() {
 
     // };
-
+    private:
+    int maxNCards;
+    Card* cards;
 };
 
 class Game {
