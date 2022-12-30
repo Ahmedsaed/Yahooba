@@ -527,9 +527,7 @@ public:
 //Demo of Users class ~start~ ---------------------------------------------------------------------------
 class Player
 {
-    public:
-    string name;    
-
+    public
     Player(int m = 5) {
         maxNCards = m;
         cards = new Card[m];
