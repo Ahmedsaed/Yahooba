@@ -1,6 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+#if defined(_WIN64) || defined(_WIN32) || defined(__CYGWIN__)
+    #define osClearCommand "cls"
+#else
+    #define osClearCommand "clear"
+#endif
+
 class Card
 {
 public: 
@@ -540,7 +546,7 @@ class Player
     {
         string n;
         cout << "Enter your name: "; getline(cin, n); cout << "\n";
-        system("clear");
+        system(osClearCommand);
     }
 
     void getName()
@@ -708,7 +714,7 @@ class Player
             }
             else { cout << "You are out of boundaries! Choose again.\n"; }
         }
-        system("clear");
+        system(osClearCommand);
     }
 
     void pickRandomCards(Player user) {
@@ -849,7 +855,7 @@ class Player
             }
             else { cout << "You are out of boundaries! Choose again.\n"; }
         }
-        system("clear");
+        system(osClearCommand);
     }
 
     void printPlayerCards() {
@@ -878,11 +884,28 @@ public:
 
         displayCards();
 
+        // if (startGame() == 1)
+            
+        // else {
+        //     // Play round 
+        // }
+
         player.pickCards(player);
         computer.pickRandomCards(computer);
 
         player.printPlayerCards();
         computer.printPlayerCards();
+    }
+
+    int startGame() {
+        system(osClearCommand);
+        cout << "Do you want to start?\n"
+             << "[1] Display your cards\n"
+             << "[2] Play\n";
+        int n;
+        cin >> n;
+        while(n != 1 && n != 2) cin >> n;
+        return n;
     }
 
     void displayCards()
@@ -903,11 +926,6 @@ int main()
     Game game;
 
     game.console();
-    
-    // user1.setName();
-    // game.displayCards();
-    // user1.pickCards(user1);
-
 
     // --------------------------------
 
