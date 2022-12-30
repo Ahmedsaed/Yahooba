@@ -542,151 +542,310 @@ class Player
     {
         cout << name << endl;
     }
+
+    void pickCards(Player user) {
+        int i = 0, num = 0;
+        while(i < 5)
+        {
+            cout << "Pick card number: ";
+            cin >> num;
+            if(num > 0 && num < 21)
+            {
+                switch (num)
+                {
+                    case 1:
+                    {
+                        Card *bomba = new Bomba();
+                        user.cards[i] = *bomba;
+                        break;
+                    }
+                    case 2:
+                    {
+                        Card *nuker = new Nuker();
+                        user.cards[i] = *nuker;
+                        break;
+                    }
+                    case 3:
+                    {
+                        Card *detonator = new Detonator();
+                        user.cards[i] = *detonator;
+                        break;
+                    }
+                    case 4:
+                    {
+                        Card *pop = new Pop();
+                        user.cards[i] = *pop;
+                        break;
+                    }
+                    case 5:
+                    {
+                        Card *eradicator = new Eradicator();
+                        user.cards[i] = *eradicator;
+                        break;
+                    }   
+                    case 6:
+                    {
+                        Card *yogi = new Yogi();
+                        user.cards[i] = *yogi;
+                        break;
+                    }
+                    case 7:
+                    {
+                        Card *gogo = new GoGo();
+                        user.cards[i] = *gogo;
+                        break;
+                    }
+                    case 8:
+                    {
+                        Card *leo = new Leo(); 
+                        user.cards[i] = *leo;
+                        break;
+                    }
+                    case 9:
+                    {
+                        Card *avatar = new Avatar();
+                        user.cards[i] = *avatar;
+                        break;
+                    }
+                    case 10:
+                    {
+                        Card *ventura = new Ventura();
+                        user.cards[i] = *ventura;
+                        break;
+                    }
+                    case 11:
+                    {
+                        Card *golem = new Golem();
+                        user.cards[i] = *golem;
+                        break;
+                    }
+                    case 12:
+                    {
+                        Card *yeti = new Yeti();
+                        user.cards[i] = *yeti;
+                        break;
+                    }
+                    case 13:
+                    {
+                        Card *grimm = new Grimm();
+                        user.cards[i] = *grimm;
+                        break;
+                    }
+                    case 14:
+                    {
+                        Card *pekka = new PEKKA();
+                        user.cards[i] = *pekka;
+                        break;
+                    }
+                    case 15:
+                    {
+                        Card *colossal = new Colossal;
+                        user.cards[i] = *colossal;
+                        break;
+                    }
+                    case 16:
+                    {
+                        Card *ethan = new Ethan;
+                        user.cards[i] = *ethan;
+                        break;
+                    }
+                    case 17:
+                    {
+                        Card *harold = new Harold;
+                        user.cards[i] = *harold;
+                        break;
+                    }
+                    case 18:
+                    {
+                        Card *kane = new Kane;
+                        user.cards[i] = *kane;
+                        break;
+                    }
+                    case 19:
+                    {
+                        Card *lewis = new Lewis;
+                        user.cards[i] = *lewis;
+                        break;
+                    }
+                    case 20:
+                    {
+                        Card *liam = new Liam;
+                        user.cards[i] = *liam;
+                        break;
+                    }
+                }
+                i++;
+            }
+            else { cout << "You are out of boundaries! Choose again.\n"; }
+        }
+    }
+
+    void pickRandomCards(Player user) {
+        int i = 0, num = 0;
+        while(i < 5)
+        {
+            num = rand()%20+1;
+            if(num > 0 && num < 21)
+            {
+                switch (num)
+                {
+                    case 1:
+                    {
+                        Card *bomba = new Bomba();
+                        user.cards[i] = *bomba;
+                        break;
+                    }
+                    case 2:
+                    {
+                        Card *nuker = new Nuker();
+                        user.cards[i] = *nuker;
+                        break;
+                    }
+                    case 3:
+                    {
+                        Card *detonator = new Detonator();
+                        user.cards[i] = *detonator;
+                        break;
+                    }
+                    case 4:
+                    {
+                        Card *pop = new Pop();
+                        user.cards[i] = *pop;
+                        break;
+                    }
+                    case 5:
+                    {
+                        Card *eradicator = new Eradicator();
+                        user.cards[i] = *eradicator;
+                        break;
+                    }   
+                    case 6:
+                    {
+                        Card *yogi = new Yogi();
+                        user.cards[i] = *yogi;
+                        break;
+                    }
+                    case 7:
+                    {
+                        Card *gogo = new GoGo();
+                        user.cards[i] = *gogo;
+                        break;
+                    }
+                    case 8:
+                    {
+                        Card *leo = new Leo(); 
+                        user.cards[i] = *leo;
+                        break;
+                    }
+                    case 9:
+                    {
+                        Card *avatar = new Avatar();
+                        user.cards[i] = *avatar;
+                        break;
+                    }
+                    case 10:
+                    {
+                        Card *ventura = new Ventura();
+                        user.cards[i] = *ventura;
+                        break;
+                    }
+                    case 11:
+                    {
+                        Card *golem = new Golem();
+                        user.cards[i] = *golem;
+                        break;
+                    }
+                    case 12:
+                    {
+                        Card *yeti = new Yeti();
+                        user.cards[i] = *yeti;
+                        break;
+                    }
+                    case 13:
+                    {
+                        Card *grimm = new Grimm();
+                        user.cards[i] = *grimm;
+                        break;
+                    }
+                    case 14:
+                    {
+                        Card *pekka = new PEKKA();
+                        user.cards[i] = *pekka;
+                        break;
+                    }
+                    case 15:
+                    {
+                        Card *colossal = new Colossal;
+                        user.cards[i] = *colossal;
+                        break;
+                    }
+                    case 16:
+                    {
+                        Card *ethan = new Ethan;
+                        user.cards[i] = *ethan;
+                        break;
+                    }
+                    case 17:
+                    {
+                        Card *harold = new Harold;
+                        user.cards[i] = *harold;
+                        break;
+                    }
+                    case 18:
+                    {
+                        Card *kane = new Kane;
+                        user.cards[i] = *kane;
+                        break;
+                    }
+                    case 19:
+                    {
+                        Card *lewis = new Lewis;
+                        user.cards[i] = *lewis;
+                        break;
+                    }
+                    case 20:
+                    {
+                        Card *liam = new Liam;
+                        user.cards[i] = *liam;
+                        break;
+                    }
+                }
+                i++;
+            }
+            else { cout << "You are out of boundaries! Choose again.\n"; }
+        }
+    }
+
+    void printPlayerCards() {
+        
+    }
+    // Card getCard() {
+
+    // };
+
 };
 
-void displayCards(); 
+class Game {
+public:
+    void displayCards()
+    {
+        cout << "Available Cards:\n (1) Bomba, (2) Nuker, (3) Detonator, (4) Pop, (5) Eradicator "
+            << "(6) Yogi, (7) GoGo, (8) Leo, (9) Avatar, (10) Vendora\n (11) Golem, (12) Yeti, (13) Grimm "
+            << "(14) PEKKA, (15) Colossal, (16) Ethan, (17) Harold, (18) Kane, (19) Lewis, (20) Liam\n\n"
+            << "Choose 5 cards\n"
+            << "--------------\n";
+    }
+};
 
 int main()
 {   
     int num, i = 0;
     Player user1,user2;
+    Game game;
     
     user1.setName();
-    displayCards();
-    while(i < 5)
-    {
-        cout << "Pick card number: ";
-        cin >> num;
-        if(num > 0 && num < 21)
-        {
-            switch (num)
-            {
-                case 1:
-                {
-                    Card *bomba = new Bomba();
-                    user1.cards[i] = *bomba;
-                    break;
-                }
-                case 2:
-                {
-                    Card *nuker = new Nuker();
-                    user1.cards[i] = *nuker;
-                    break;
-                }
-                case 3:
-                {
-                    Card *detonator = new Detonator();
-                    user1.cards[i] = *detonator;
-                    break;
-                }
-                case 4:
-                {
-                    Card *pop = new Pop();
-                    user1.cards[i] = *pop;
-                    break;
-                }
-                case 5:
-                {
-                    Card *eradicator = new Eradicator();
-                    user1.cards[i] = *eradicator;
-                    break;
-                }   
-                case 6:
-                {
-                    Card *yogi = new Yogi();
-                    user1.cards[i] = *yogi;
-                    break;
-                }
-                case 7:
-                {
-                    Card *gogo = new GoGo();
-                    user1.cards[i] = *gogo;
-                    break;
-                }
-                case 8:
-                {
-                    Card *leo = new Leo(); 
-                    user1.cards[i] = *leo;
-                    break;
-                }
-                case 9:
-                {
-                    Card *avatar = new Avatar();
-                    user1.cards[i] = *avatar;
-                    break;
-                }
-                case 10:
-                {
-                    Card *ventura = new Ventura();
-                    user1.cards[i] = *ventura;
-                    break;
-                }
-                case 11:
-                {
-                    Card *golem = new Golem();
-                    user1.cards[i] = *golem;
-                    break;
-                }
-                case 12:
-                {
-                    Card *yeti = new Yeti();
-                    user1.cards[i] = *yeti;
-                    break;
-                }
-                case 13:
-                {
-                    Card *grimm = new Grimm();
-                    user1.cards[i] = *grimm;
-                    break;
-                }
-                case 14:
-                {
-                    Card *pekka = new PEKKA();
-                    user1.cards[i] = *pekka;
-                    break;
-                }
-                case 15:
-                {
-                    Card *colossal = new Colossal;
-                    user1.cards[i] = *colossal;
-                    break;
-                }
-                case 16:
-                {
-                    Card *ethan = new Ethan;
-                    user1.cards[i] = *ethan;
-                    break;
-                }
-                case 17:
-                {
-                    Card *harold = new Harold;
-                    user1.cards[i] = *harold;
-                    break;
-                }
-                case 18:
-                {
-                    Card *kane = new Kane;
-                    user1.cards[i] = *kane;
-                    break;
-                }
-                case 19:
-                {
-                    Card *lewis = new Lewis;
-                    user1.cards[i] = *lewis;
-                    break;
-                }
-                case 20:
-                {
-                    Card *liam = new Liam;
-                    user1.cards[i] = *liam;
-                    break;
-                }
-            }
-            i++;
-        }
-        else { cout << "You are out of boundaries! Choose again.\n"; }
-    }
-
+    game.displayCards();
+    user1.pickCards(user1);
     // cout << "You summoned a monster: \n";
     // Bomba * us = new Bomba;
     // cout << "Enemy has summoned a monster: \n";
@@ -721,10 +880,4 @@ int main()
 } 
 // end of main
 
-void displayCards()
-{
-    cout << "Available Cards:\n (1) Bomba, (2) Nuker, (3) Detonator, (4) Pop, (5) Eradicator "
-        << "(6) Yogi, (7) GoGo, (8) Leo, (9) Avatar, (10) Vendora\n (11) Golem, (12) Yeti, (13) Grimm "
-        << "(14) PEKKA, (15) Colossal, (16) Ethan, (17) Harold, (18) Kane, (19) Lewis, (20) Liam\n"
-        << "Choose 5 cards:\n\n";
-}
+
