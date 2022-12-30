@@ -12,13 +12,14 @@ class Card
 public: 
     string name="", type="";
     int damage, health;
+    bool played = false;
     
     void getStats()
     {   
         cout << "His name is " << name << endl;
         cout << "His type is " << type << endl;
         cout << "Current Health: " << health << endl;
-        cout << "Attack Power: " << damage << endl;
+        cout << "Attack Power: " << damage << endl << endl;
     }    
     
     void printDamage() {
@@ -536,6 +537,7 @@ class Player
     public:
     string name;
     bool pickedCards[20]{0};
+    int score;
 
     Player(int m = 5) {
         maxNCards = m;
@@ -544,9 +546,9 @@ class Player
 
     void setName()
     {
+        system(osClearCommand);
         string n;
         cout << "Enter your name: "; getline(cin, n); cout << "\n";
-        system(osClearCommand);
     }
 
     void getName()
@@ -858,18 +860,46 @@ class Player
         system(osClearCommand);
     }
 
+    Card* play() {
+        int n;
+        Card *c;
+        printPlayerCards();
+        
+        do
+        {
+            cout << "Pick a card to fight: ", cin >> n;
+            n--;
+            c = &cards[n];
+        } while (c->played);
+        
+        c->played = true;
+        
+        return c; 
+    }
+
+    Card* playRandom() {
+        int n = 0;
+        Card *c;
+        
+        do
+        {
+            n = rand()%maxNCards;
+            c = &cards[n];
+        } while (c->played);
+
+        c->played = true;
+        return &cards[n];
+    }
+
     void printPlayerCards() {
         cout << endl << "Your Cards:" << endl;
         for (int i = 0; i < maxNCards; i++) {
-            cout << "Card " << i+1 << endl; 
-            cards[i].getStats();
+            if (cards[i].played == false) {
+                cout << "Card " << i+1 << endl; 
+                cards[i].getStats();
+            }
         }
     }
-    
-    
-    // Card getCard() {
-
-    // };
 
     private:
     int maxNCards;
@@ -879,37 +909,43 @@ class Player
 class Game {
 public:
     void console() {
-        Player player, computer;
+        int nRounds = 5;
+        Player player(nRounds), computer(nRounds);
         player.setName();
 
         displayCards();
 
-        // if (startGame() == 1)
-            
-        // else {
-        //     // Play round 
-        // }
-
         player.pickCards(player);
         computer.pickRandomCards(computer);
 
-        player.printPlayerCards();
-        computer.printPlayerCards();
+        // startGame();
+        
+        while (nRounds--)
+        {
+            system(osClearCommand);
+            Card *playerCard = player.play();
+            Card *computerCard = computer.playRandom();
+
+            cout << "Your Card: " << endl;
+            playerCard->getStats();
+            cout << "Opponent's Card:" << endl;
+            computerCard->getStats();
+            
+            
+        }
     }
 
-    int startGame() {
+    void startGame() {
         system(osClearCommand);
-        cout << "Do you want to start?\n"
-             << "[1] Display your cards\n"
-             << "[2] Play\n";
-        int n;
-        cin >> n;
-        while(n != 1 && n != 2) cin >> n;
-        return n;
+        cout << "Enter Y to start round? ";
+        char ch;
+        cin >> ch;
+        if (ch != 'y' && ch != 'Y') exit(0);
     }
 
     void displayCards()
     {
+        system(osClearCommand);
         cout << "Available Cards:\n (1) Bomba, (2) Nuker, (3) Detonator, (4) Pop, (5) Eradicator "
             << "(6) Yogi, (7) GoGo, (8) Leo, (9) Avatar, (10) Ventura\n (11) Golem, (12) Yeti, (13) Grimm "
             << "(14) PEKKA, (15) Colossal, (16) Ethan, (17) Harold, (18) Kane, (19) Lewis, (20) Liam\n\n"
