@@ -867,9 +867,10 @@ class Player
         do
         {
             cout << "Pick a card from the deck to fight with: ", cin >> n;
+            if(n < 1 || n > 5) continue;
             n--;
             c = &cards[n];
-        } while (c->played);
+        } while ( n < 1 || n > 5 || c->played );
         
         c->played = true;
         
