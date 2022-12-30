@@ -853,8 +853,8 @@ class Player
         system("clear");
     }
 
-    void printPlayerCards() {
-        cout << endl << "PLayer Cards:" << endl;
+    void printPlayerCards(string p) {
+        cout << endl << p << " Cards:" << endl;
         for (int i = 0; i < maxNCards; i++) {
             cout << "Card " << i << endl; 
             cards[i].getStats();
@@ -873,8 +873,7 @@ class Player
 
 class Game {
 public:
-
-    void start() {
+    void console() {
         Player player, computer;
         player.setName();
 
@@ -883,25 +882,28 @@ public:
         player.pickCards(player);
         computer.pickRandomCards(computer);
 
-        player.printPlayerCards();
-        computer.printPlayerCards();
+        player.printPlayerCards(player.name);
+        computer.printPlayerCards("computer");
     }
 
     void displayCards()
     {
         cout << "Available Cards:\n (1) Bomba, (2) Nuker, (3) Detonator, (4) Pop, (5) Eradicator "
-            << "(6) Yogi, (7) GoGo, (8) Leo, (9) Avatar, (10) Vendora\n (11) Golem, (12) Yeti, (13) Grimm "
+            << "(6) Yogi, (7) GoGo, (8) Leo, (9) Avatar, (10) Ventura\n (11) Golem, (12) Yeti, (13) Grimm "
             << "(14) PEKKA, (15) Colossal, (16) Ethan, (17) Harold, (18) Kane, (19) Lewis, (20) Liam\n\n"
             << "Choose 5 cards\n"
             << "--------------\n";
     }
+private:
+    Card cards[20] = {Bomba(), Nuker(), Detonator(), Pop(), Eradicator(), Yogi(), GoGo(), Leo(), Avatar(), Ventura(), 
+                    Golem(), Yeti(), Grimm(), PEKKA(), Colossal(), Ethan(), Harold(), Kane(), Lewis(), Liam()};
 };
 
 int main()
 {   
     Game game;
 
-    game.start();
+    game.console();
     
     // user1.setName();
     // game.displayCards();
