@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// This block of code is used to define that if you are using windows then the system will clear the terminal using cls,
+// otherwise it will use clear to clear the terminal
 #if defined(_WIN64) || defined(_WIN32) || defined(__CYGWIN__)
     #define osClearCommand "cls"
 #else
@@ -9,11 +11,13 @@ using namespace std;
 
 class Card
 {
+// base class.
 public: 
     string name="", type="";
     int damage, health;
     bool played = false;
     
+    // A function that prints out the monster's stats.
     void getStats()
     {   
         cout << "His name is " << name << endl;
@@ -22,10 +26,12 @@ public:
         cout << "Attack Power: " << damage << endl << endl;
     }    
     
+    // A function that prints the damage of the monster.
     void printDamage() {
         cout << name << " has " << damage << " points " << endl;
     }
 
+    // A function that updates the monster's health.
     void updateHealth(int attack)
     {
         cout << name << "'s health has been dropped from " << health;
@@ -33,14 +39,17 @@ public:
         cout << " to " << health << endl;
     }
 
+    // A function that prints out the monster's health.
     void printHealth() {
         cout << name << " has " << health << " health points" << endl;
     }
 
+    // A function that prints out the summoning of the monster.
     void callCard(){
         cout << setw(10) << name << " has been summoned\n";
     }
 
+    // A function that prints out the winner.
     virtual void winMsg()
     {
         cout << name << " is the winner!\n";
@@ -51,8 +60,10 @@ public:
 // Explosive Type (High damage 250-350 , medium health 300-450) --------------------------------------------------
 // Explosive #1
 class Bomba: public Card {
+// A monster derived class.
 public:
 
+    // Monster's constructor that sets out initially his attributes.
     Bomba()
     {
         name="Bomba";
@@ -61,12 +72,14 @@ public:
         health = 425;
     }
 
+    // A special message for the monster if he won.
     void winMsg()
     {
         Card :: winMsg();
         cout << "Nothing warms an Explosive Monster's cold and undead heart like blowing up his opponents!\n";
     }
 
+    // Destructor message if he got destroyed.
     ~Bomba()
     {
         cout << name << " has Exploded!\n";
@@ -75,7 +88,10 @@ public:
 
 // Explosive #2
 class Nuker: public Card {
+// A monster derived class.
 public:
+
+    // Monster's constructor that sets out initially his attributes.
     Nuker()
     {
         name="Nuker";
@@ -84,12 +100,14 @@ public:
         health = 350;
     }
 
+    // A special message for the monster if he won.
     void winMsg()
     {
         Card :: winMsg();
         cout << "Nothing warms an Explosive Monster's cold and undead heart like blowing up his opponents!\n";
     }
 
+    // Destructor message if he got destroyed.
     ~Nuker()
     {
         cout << name << " has Exploded!\n";
@@ -539,11 +557,13 @@ class Player
     bool pickedCards[20]{0};
     int score = 0;
 
+    // Constructor initalizes private members:
     Player(int m = 5) {
         maxNCards = m;
         cards = new Card[m];
     }    
 
+    // Set the user's name:
     void setName()
     {
         system(osClearCommand);
@@ -552,315 +572,200 @@ class Player
         name = n;
     }
 
+    // Get the user's name:
     void getName()
     {
         cout << name << endl;
     }
 
+    // The user gets to pick his cards:
     void pickCards(Player user) {
         int i = 0, num = 0;
         while(i < maxNCards)
         {
             cout << "Pick card number: ";
             cin >> num;
-            if(user.pickedCards[num])
-            {
-                cout << "You've already picked this monster, please pick another one!\n";
-                continue;
-            }
             if(num > 0 && num < 21)
             {
-                switch (num)
+                if(user.pickedCards[num])
                 {
-                    case 1:
-                    {
-                        user.pickedCards[1] = 1;
-                        Card *bomba = new Bomba();
-                        user.cards[i] = *bomba;
-                        break;
-                    }
-                    case 2:
-                    {
-                        user.pickedCards[2] = 1;
-                        Card *nuker = new Nuker();
-                        user.cards[i] = *nuker;
-                        break;
-                    }
-                    case 3:
-                    {
-                        user.pickedCards[3] = 1;
-                        Card *detonator = new Detonator();
-                        user.cards[i] = *detonator;
-                        break;
-                    }
-                    case 4:
-                    {
-                        user.pickedCards[4] = 1;
-                        Card *pop = new Pop();
-                        user.cards[i] = *pop;
-                        break;
-                    }
-                    case 5:
-                    {
-                        user.pickedCards[5] = 1;
-                        Card *eradicator = new Eradicator();
-                        user.cards[i] = *eradicator;
-                        break;
-                    }   
-                    case 6:
-                    {
-                        user.pickedCards[6] = 1;
-                        Card *yogi = new Yogi();
-                        user.cards[i] = *yogi;
-                        break;
-                    }
-                    case 7:
-                    {
-                        user.pickedCards[7] = 1;
-                        Card *gogo = new GoGo();
-                        user.cards[i] = *gogo;
-                        break;
-                    }
-                    case 8:
-                    {
-                        user.pickedCards[8] = 1;
-                        Card *leo = new Leo(); 
-                        user.cards[i] = *leo;
-                        break;
-                    }
-                    case 9:
-                    {
-                        user.pickedCards[9] = 1;
-                        Card *avatar = new Avatar();
-                        user.cards[i] = *avatar;
-                        break;
-                    }
-                    case 10:
-                    {
-                        user.pickedCards[10] = 1;
-                        Card *ventura = new Ventura();
-                        user.cards[i] = *ventura;
-                        break;
-                    }
-                    case 11:
-                    {
-                        user.pickedCards[11] = 1;
-                        Card *golem = new Golem();
-                        user.cards[i] = *golem;
-                        break;
-                    }
-                    case 12:
-                    {
-                        user.pickedCards[12] = 1;
-                        Card *yeti = new Yeti();
-                        user.cards[i] = *yeti;
-                        break;
-                    }
-                    case 13:
-                    {
-                        user.pickedCards[13] = 1;
-                        Card *grimm = new Grimm();
-                        user.cards[i] = *grimm;
-                        break;
-                    }
-                    case 14:
-                    {
-                        user.pickedCards[14] = 1;
-                        Card *pekka = new PEKKA();
-                        user.cards[i] = *pekka;
-                        break;
-                    }
-                    case 15:
-                    {
-                        user.pickedCards[15] = 1;
-                        Card *colossal = new Colossal;
-                        user.cards[i] = *colossal;
-                        break;
-                    }
-                    case 16:
-                    {
-                        user.pickedCards[16] = 1;
-                        Card *ethan = new Ethan;
-                        user.cards[i] = *ethan;
-                        break;
-                    }
-                    case 17:
-                    {
-                        user.pickedCards[17] = 1;
-                        Card *harold = new Harold;
-                        user.cards[i] = *harold;
-                        break;
-                    }
-                    case 18:
-                    {
-                        user.pickedCards[18] = 1;
-                        Card *kane = new Kane;
-                        user.cards[i] = *kane;
-                        break;
-                    }
-                    case 19:
-                    {
-                        user.pickedCards[19] = 1;
-                        Card *lewis = new Lewis;
-                        user.cards[i] = *lewis;
-                        break;
-                    }
-                    case 20:
-                    {
-                        user.pickedCards[20] = 1;
-                        Card *liam = new Liam;
-                        user.cards[i] = *liam;
-                        break;
-                    }
+                    cout << "You've already picked this monster, please pick another one!\n";
+                    continue;
                 }
+                switchFunction(num,user,i);
                 i++;
             }
             else { cout << "You are out of boundaries! Choose again.\n"; }
         }
     }
 
+    // Random cards for AI:
     void pickRandomCards(Player user) {
         int i = 0, num = 0;
         while(i < maxNCards)
         {
             num = rand()%20+1;
-            if(user.pickedCards[num])
-            {
-                continue;
-            }
             if(num > 0 && num < 21)
             {
-                switch (num)
-                {
-                    case 1:
-                    {
-                        Card *bomba = new Bomba();
-                        user.cards[i] = *bomba;
-                        break;
-                    }
-                    case 2:
-                    {
-                        Card *nuker = new Nuker();
-                        user.cards[i] = *nuker;
-                        break;
-                    }
-                    case 3:
-                    {
-                        Card *detonator = new Detonator();
-                        user.cards[i] = *detonator;
-                        break;
-                    }
-                    case 4:
-                    {
-                        Card *pop = new Pop();
-                        user.cards[i] = *pop;
-                        break;
-                    }
-                    case 5:
-                    {
-                        Card *eradicator = new Eradicator();
-                        user.cards[i] = *eradicator;
-                        break;
-                    }   
-                    case 6:
-                    {
-                        Card *yogi = new Yogi();
-                        user.cards[i] = *yogi;
-                        break;
-                    }
-                    case 7:
-                    {
-                        Card *gogo = new GoGo();
-                        user.cards[i] = *gogo;
-                        break;
-                    }
-                    case 8:
-                    {
-                        Card *leo = new Leo(); 
-                        user.cards[i] = *leo;
-                        break;
-                    }
-                    case 9:
-                    {
-                        Card *avatar = new Avatar();
-                        user.cards[i] = *avatar;
-                        break;
-                    }
-                    case 10:
-                    {
-                        Card *ventura = new Ventura();
-                        user.cards[i] = *ventura;
-                        break;
-                    }
-                    case 11:
-                    {
-                        Card *golem = new Golem();
-                        user.cards[i] = *golem;
-                        break;
-                    }
-                    case 12:
-                    {
-                        Card *yeti = new Yeti();
-                        user.cards[i] = *yeti;
-                        break;
-                    }
-                    case 13:
-                    {
-                        Card *grimm = new Grimm();
-                        user.cards[i] = *grimm;
-                        break;
-                    }
-                    case 14:
-                    {
-                        Card *pekka = new PEKKA();
-                        user.cards[i] = *pekka;
-                        break;
-                    }
-                    case 15:
-                    {
-                        Card *colossal = new Colossal;
-                        user.cards[i] = *colossal;
-                        break;
-                    }
-                    case 16:
-                    {
-                        Card *ethan = new Ethan;
-                        user.cards[i] = *ethan;
-                        break;
-                    }
-                    case 17:
-                    {
-                        Card *harold = new Harold;
-                        user.cards[i] = *harold;
-                        break;
-                    }
-                    case 18:
-                    {
-                        Card *kane = new Kane;
-                        user.cards[i] = *kane;
-                        break;
-                    }
-                    case 19:
-                    {
-                        Card *lewis = new Lewis;
-                        user.cards[i] = *lewis;
-                        break;
-                    }
-                    case 20:
-                    {
-                        Card *liam = new Liam;
-                        user.cards[i] = *liam;
-                        break;
-                    }
+                if(user.pickedCards[num])
+                {   
+                    continue;
                 }
+                switchFunction(num,user,i);
                 i++;
             }
-            else { cout << "You are out of boundaries! Choose again.\n"; }
         }
     }
 
+    void switchFunction(int num, Player& user, int i)
+    {
+        switch (num)
+        {
+            case 1:
+            {
+                user.pickedCards[1] = 1;
+                Card *bomba = new Bomba();
+                user.cards[i] = *bomba;
+                break;
+            }
+            case 2:
+            {
+                user.pickedCards[2] = 1;
+                Card *nuker = new Nuker();
+                user.cards[i] = *nuker;
+                break;
+            }
+            case 3:
+            {
+                user.pickedCards[3] = 1;
+                Card *detonator = new Detonator();
+                user.cards[i] = *detonator;
+                break;
+            }
+            case 4:
+            {
+                user.pickedCards[4] = 1;
+                Card *pop = new Pop();
+                user.cards[i] = *pop;
+                break;
+            }
+            case 5:
+            {
+                user.pickedCards[5] = 1;
+                Card *eradicator = new Eradicator();
+                user.cards[i] = *eradicator;
+                break;
+            }   
+            case 6:
+            {
+                user.pickedCards[6] = 1;
+                Card *yogi = new Yogi();
+                user.cards[i] = *yogi;
+                break;
+            }
+            case 7:
+            {
+                user.pickedCards[7] = 1;
+                Card *gogo = new GoGo();
+                user.cards[i] = *gogo;
+                break;
+            }
+            case 8:
+            {
+                user.pickedCards[8] = 1;
+                Card *leo = new Leo(); 
+                user.cards[i] = *leo;
+                break;
+            }
+            case 9:
+            {
+                 user.pickedCards[9] = 1;
+                 Card *avatar = new Avatar();
+                 user.cards[i] = *avatar;
+                 break;
+            }
+            case 10:
+            {
+                user.pickedCards[10] = 1;
+                Card *ventura = new Ventura();
+                user.cards[i] = *ventura;
+                break;
+            }
+            case 11:
+            {
+                user.pickedCards[11] = 1;
+                Card *golem = new Golem();
+                user.cards[i] = *golem;
+                break;
+            }
+            case 12:
+            {
+                user.pickedCards[12] = 1;
+                Card *yeti = new Yeti();
+                user.cards[i] = *yeti;
+                break;
+            }
+            case 13:
+            {
+                user.pickedCards[13] = 1;
+                Card *grimm = new Grimm();
+                user.cards[i] = *grimm;
+                break;
+            }
+            case 14:
+            {
+                user.pickedCards[14] = 1;
+                Card *pekka = new PEKKA();
+                user.cards[i] = *pekka;
+                break;
+            }
+            case 15:
+            {
+                user.pickedCards[15] = 1;
+                Card *colossal = new Colossal;
+                user.cards[i] = *colossal;
+                break;
+            }
+            case 16:
+            {
+                user.pickedCards[16] = 1;
+                Card *ethan = new Ethan;
+                user.cards[i] = *ethan;
+                break;
+            }
+            case 17:
+            {
+                user.pickedCards[17] = 1;
+                Card *harold = new Harold;
+                user.cards[i] = *harold;
+                break;
+            }
+            case 18:
+            {
+                user.pickedCards[18] = 1;
+                Card *kane = new Kane;
+                user.cards[i] = *kane;
+                break;
+            }
+            case 19:
+            {
+                user.pickedCards[19] = 1;
+                Card *lewis = new Lewis;
+                user.cards[i] = *lewis;
+                break;
+            }
+            case 20:
+            {
+                user.pickedCards[20] = 1;
+                Card *liam = new Liam;
+                user.cards[i] = *liam;
+                break;
+            }
+        }        
+    }
+    // The choice for the player to play whichever card:
     Card* play() {
-        int n;
+        int n,temp;
         Card *c;
         printPlayerCards();
         
@@ -868,8 +773,8 @@ class Player
         {
             cout << "Pick a card from the deck to fight with: ", cin >> n;
             if(n < 1 || n > 5) continue;
-            n--;
-            c = &cards[n];
+            temp = n-1;
+            c = &cards[temp];
         } while ( n < 1 || n > 5 || c->played );
         
         c->played = true;
@@ -877,6 +782,7 @@ class Player
         return c; 
     }
 
+    // The random choice for the AI:
     Card* playRandom() {
         int n = 0;
         Card *c;
@@ -891,6 +797,7 @@ class Player
         return &cards[n];
     }
 
+    // A function that prints the players cards:
     void printPlayerCards() {
         cout << endl << "Your Cards:" << endl;
         for (int i = 0; i < maxNCards; i++) {
@@ -907,7 +814,9 @@ class Player
 };
 
 class Game {
+// A class that contains the game's logic.
 public:
+    // Application of the built methods.
     void run() {
         int nRounds = 5;
         Player player(nRounds), computer(nRounds);
@@ -944,6 +853,7 @@ public:
         announceTheWinner(&player, &computer);
     }
 
+    // A function that prints out the game's winner.
     void announceTheWinner(Player *player, Player *computer) {
         if (player->score > computer->score)
             cout << player->name << " has won the game" << endl;
@@ -954,6 +864,7 @@ public:
 
     }
 
+    // A function that calculates the winner of the by checking the last survivor of the duel.
     int calculateWinner(Card* playerCard, Card* computerCard) {
         int winner = 0;
 
@@ -984,6 +895,7 @@ public:
         return winner;
     }
 
+    // A function that asks the user if he wants to play the game.
     void continueGame() {
         cout << endl << "Enter Y to continue: ";
         char ch;
@@ -991,6 +903,7 @@ public:
         if (ch != 'y' && ch != 'Y') exit(0);
     }
 
+    // A function that displays the game's cards.
     void displayCards()
     {
         system(osClearCommand);
