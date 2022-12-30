@@ -11,8 +11,8 @@ public:
     {   
         cout << "His name is " << name << endl;
         cout << "His type is " << type << endl;
-        cout << "Current Health: " << health << "\n";
-        cout << "Attack Power: " << damage << "\n";
+        cout << "Current Health: " << health << endl;
+        cout << "Attack Power: " << damage << endl;
     }    
     
     void printDamage() {
@@ -23,7 +23,7 @@ public:
     {
         cout << name << "'s health has been dropped from " << health;
         health = (health < attack) ? 0 : health - attack;
-        cout << " to " << health << "\n";
+        cout << " to " << health << endl;
     }
 
     void printHealth() {
@@ -532,10 +532,16 @@ class Player
     Card* cards = new Card[5];
     bool pickedMonsters[20]{0};
 
+    Player(int m = 5) {
+        maxNCards = m;
+        cards = new Card[m];
+    }    
+
     void setName()
     {
         string n;
         cout << "Enter your name: "; getline(cin, n); cout << "\n";
+        system("clear");
     }
 
     void getName()
@@ -545,7 +551,7 @@ class Player
 
     void pickCards(Player user) {
         int i = 0, num = 0;
-        while(i < 5)
+        while(i < maxNCards)
         {
             cout << "Pick card number: ";
             cin >> num;
@@ -703,13 +709,18 @@ class Player
             }
             else { cout << "You are out of boundaries! Choose again.\n"; }
         }
+        system("clear");
     }
 
     void pickRandomCards(Player user) {
         int i = 0, num = 0;
-        while(i < 5)
+        while(i < maxNCards)
         {
             num = rand()%20+1;
+            if(user.pickedMonsters[num])
+            {
+                continue;
+            }
             if(num > 0 && num < 21)
             {
                 switch (num)
@@ -839,19 +850,43 @@ class Player
             }
             else { cout << "You are out of boundaries! Choose again.\n"; }
         }
+        system("clear");
     }
 
     void printPlayerCards() {
-        
+        cout << endl << "PLayer Cards:" << endl;
+        for (int i = 0; i < maxNCards; i++) {
+            cout << "Card " << i << endl; 
+            cards[i].getStats();
+        }
     }
+    
+    
     // Card getCard() {
 
     // };
 
+    private:
+    int maxNCards;
+    Card* cards;
 };
 
 class Game {
 public:
+
+    void start() {
+        Player player, computer;
+        player.setName();
+
+        displayCards();
+
+        player.pickCards(player);
+        computer.pickRandomCards(computer);
+
+        player.printPlayerCards();
+        computer.printPlayerCards();
+    }
+
     void displayCards()
     {
         cout << "Available Cards:\n (1) Bomba, (2) Nuker, (3) Detonator, (4) Pop, (5) Eradicator "
@@ -864,21 +899,13 @@ public:
 
 int main()
 {   
-    int num, i = 0;
-    Player user1,user2;
     Game game;
+
+    game.start();
     
-    user1.setName();
-    game.displayCards();
-    user1.pickCards(user1);
-    // cout << "You summoned a monster: \n";
-    // Bomba * us = new Bomba;
-    // cout << "Enemy has summoned a monster: \n";
-    // Bomba * monster2 = new Bomba;
-    // cout << "Enemy has decided to attack!\n";
-    // cout << us->name << " has been attacked by opposing " << monster2->name << "\n";
-    // us->setHealth(monster2->power);
-    // if(us->defense <= 0) delete us;
+    // user1.setName();
+    // game.displayCards();
+    // user1.pickCards(user1);
 
 
     // --------------------------------
