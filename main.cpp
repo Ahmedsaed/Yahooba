@@ -529,7 +529,6 @@ class Player
 {
     public:
     string name;
-    Card* cards = new Card[5];
     bool pickedCards[20]{0};
 
     Player(int m = 5) {
@@ -856,7 +855,7 @@ class Player
     void printPlayerCards(string p) {
         cout << endl << p << " Cards:" << endl;
         for (int i = 0; i < maxNCards; i++) {
-            cout << "Card " << i << endl; 
+            cout << "Card " << i+1 << endl; 
             cards[i].getStats();
         }
     }
@@ -894,9 +893,9 @@ public:
             << "Choose 5 cards\n"
             << "--------------\n";
     }
-private:
+ /* private:
     Card cards[20] = {Bomba(), Nuker(), Detonator(), Pop(), Eradicator(), Yogi(), GoGo(), Leo(), Avatar(), Ventura(), 
-                    Golem(), Yeti(), Grimm(), PEKKA(), Colossal(), Ethan(), Harold(), Kane(), Lewis(), Liam()};
+                    Golem(), Yeti(), Grimm(), PEKKA(), Colossal(), Ethan(), Harold(), Kane(), Lewis(), Liam()}; */
 };
 
 int main()
