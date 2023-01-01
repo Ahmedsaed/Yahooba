@@ -569,6 +569,7 @@ class Player
     {
         system(osClearCommand);
         string n;
+        cout << "Welcome to YaHooba!\n";
         cout << "Enter your name: "; getline(cin, n); cout << "\n";
         name = n;
     }
@@ -993,15 +994,18 @@ public:
         announceTheWinner(&player, &computer);
     }
     private:
-         
+
     // A function that prints out the game's winner.
     void announceTheWinner(Player *player, Player *computer) {
+
+        system(osClearCommand);
+
         if (player->score > computer->score)
-            cout << player->name << " has won the game" << endl;
+            cout << "Congratulations to you, " << player->name << " , you've won the game. \n" << endl;
         else if (player->score == computer->score) 
-            cout << "The game has ended in a draw" << endl;
+            cout << "The game has ended in a draw. \n" << endl;
         else 
-            cout << "The opponent has won the game" << endl;;
+            cout << "Sorry, " << player->name << " , the opponent has won the game. \n" << endl;;
 
     }
 
