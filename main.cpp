@@ -865,7 +865,7 @@ private:
 
     }
 
-    // A function that calculates the winner of the by checking the last survivor of the duel.
+    // A function that calculates the winner of the round by checking the last survivor of the duel.
     int calculateWinner(Card* playerCard, Card* computerCard) {
         int winner = 0;
 
