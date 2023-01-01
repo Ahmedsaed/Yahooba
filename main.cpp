@@ -50,12 +50,6 @@ public:
     void callCard(){
         cout << setw(10) << name << " has been summoned\n";
     }
-
-    // A function that prints out the winner.
-    virtual void winMsg()
-    {
-        cout << name << " is the winner!\n";
-    }
 };
 
 // Explosive Type (High damage 250-350 , medium health 300-450) --------------------------------------------------
@@ -71,13 +65,6 @@ public:
         type = "Explosive";
         damage = 250;
         health = 425;
-    }
-
-    // A special message for the monster if he won.
-    void winMsg()
-    {
-        Card :: winMsg();
-        cout << "Nothing warms an Explosive Monster's cold and undead heart like blowing up his opponents!\n";
     }
 
     // Destructor message if he got destroyed.
@@ -102,11 +89,7 @@ public:
     }
 
     // A special message for the monster if he won.
-    void winMsg()
-    {
-        Card :: winMsg();
-        cout << "Nothing warms an Explosive Monster's cold and undead heart like blowing up his opponents!\n";
-    }
+    
 
     // Destructor message if he got destroyed.
     ~Nuker()
@@ -126,11 +109,7 @@ public:
         health = 300;
     }
 
-    void winMsg()
-    {
-        Card :: winMsg();
-        cout << "Nothing warms an Explosive Monster's cold and undead heart like blowing up his opponents!\n";
-    }
+    
 
     ~Detonator()
     {
@@ -149,11 +128,7 @@ public:
         health = 375;
     }
 
-    void winMsg()
-    {
-        Card :: winMsg();
-        cout << "Nothing warms an Explosive Monster's cold and undead heart like blowing up his opponents!\n";
-    }
+    
 
     ~Pop()
     {
@@ -172,11 +147,7 @@ public:
         health = 410;
     }
 
-    void winMsg()
-    {
-        Card :: winMsg();
-        cout << "Nothing warms an Explosive Monster's cold and undead heart like blowing up his opponents!\n";
-    }
+    
 
     ~Eradicator()
     {
@@ -199,11 +170,7 @@ public:
         health = 189;
     }
 
-    void winMsg()
-    {
-        Card :: winMsg();
-        cout << "Nothing makes a sharpshooting hunter happier than single-mindedly taking down their target!\n";
-    }
+    
 
     ~Yogi()
     {
@@ -223,11 +190,7 @@ public:
         health = 200;
     }
 
-    void winMsg()
-    {
-        Card :: winMsg();
-        cout << "Nothing makes a sharpshooting hunter happier than single-mindedly taking down their target!\n";
-    }
+    
 
     ~GoGo()
     {
@@ -246,11 +209,7 @@ public:
         health = 193;
     }
 
-    void winMsg()
-    {
-        Card :: winMsg();
-        cout << "Nothing makes a sharpshooting hunter happier than single-mindedly taking down their target!\n";
-    }
+    
 
     ~Leo()
     {
@@ -269,11 +228,7 @@ public:
         health = 190;
     }
 
-    void winMsg()
-    {
-        Card :: winMsg();
-        cout << "Nothing makes a sharpshooting hunter happier than single-mindedly taking down their target!\n";
-    }
+    
 
     ~Avatar()
     {
@@ -292,11 +247,7 @@ public:
         health = 196;
     }
 
-    void winMsg()
-    {
-        Card :: winMsg();
-        cout << "Nothing makes a sharpshooting hunter happier than single-mindedly taking down their target!\n";
-    }
+    
 
     ~Ventura()
     {
@@ -321,11 +272,7 @@ public:
         health = 1500;
     }
 
-    void winMsg()
-    {
-        Card :: winMsg();
-        cout << "You cannot take down the BIG GUY\n";
-    }
+    
 
     ~Golem()
     {
@@ -345,11 +292,7 @@ public:
         health = 1400;
     }
 
-    void winMsg()
-    {
-        Card :: winMsg();
-        cout << "You cannot take down the BIG GUY\n";
-    }
+    
 
     ~Yeti()
     {
@@ -369,11 +312,7 @@ public:
         health = 1300;
     }
 
-    void winMsg()
-    {
-        Card :: winMsg();
-        cout << "You cannot take down the BIG GUY\n";
-    }
+    
 
     ~Grimm()
     {
@@ -393,11 +332,7 @@ public:
         health = 1200;
     }
 
-    void winMsg()
-    {
-        Card :: winMsg();
-        cout << "You cannot take down the BIG GUY\n";
-    }
+    
 
     ~PEKKA()
     {
@@ -417,11 +352,7 @@ public:
         health = 1000;
     }
 
-    void winMsg()
-    {
-        Card :: winMsg();
-        cout << "You cannot take down the BIG GUY\n";
-    }
+    
 
     ~Colossal()
     {
@@ -443,11 +374,7 @@ public:
         health = 450;
     }
 
-    void winMsg()
-    {
-        Card :: winMsg();
-        cout << "Release a horde of fearless warriors and enjoy  the mayhem!\n";
-    }
+    
 
     ~Ethan()
     {
@@ -466,11 +393,7 @@ public:
         health = 400;
     }
 
-    void winMsg()
-    {
-        Card :: winMsg();
-        cout << "Release a horde of fearless warriors and enjoy  the mayhem!\n";
-    }
+    
 
     ~Harold()
     {
@@ -489,11 +412,7 @@ public:
         health = 300;
     }
 
-    void winMsg()
-    {
-        Card :: winMsg();
-        cout << "Release a horde of fearless warriors and enjoy  the mayhem!\n";
-    }
+    
 
     ~Kane()
     {
@@ -512,11 +431,7 @@ public:
         health = 350;
     }
 
-    void winMsg()
-    {
-        Card :: winMsg();
-        cout << "Release a horde of fearless warriors and enjoy  the mayhem!\n";
-    }
+    
 
     ~Lewis()
     {
@@ -535,11 +450,7 @@ public:
         health = 320;
     }
     
-    void winMsg()
-    {
-        Card :: winMsg();
-        cout << "Release a horde of fearless warriors and enjoy  the mayhem!\n";
-    }
+    
 
     ~Liam()
     {
