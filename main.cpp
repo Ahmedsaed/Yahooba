@@ -898,7 +898,7 @@ private:
 
     // A function that asks the user if he wants to play the game.
     void continueGame() {
-        cout << endl << "Enter Y to continue: ";
+        cout << endl << "Enter Y/y to continue: ";
         char ch;
         cin >> ch;
         if (ch != 'y' && ch != 'Y') exit(0);
