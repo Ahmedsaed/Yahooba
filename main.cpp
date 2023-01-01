@@ -852,7 +852,7 @@ public:
 
         announceTheWinner(&player, &computer);
     }
-
+private:
     // A function that prints out the game's winner.
     void announceTheWinner(Player *player, Player *computer) {
         if (player->score > computer->score)
