@@ -568,6 +568,7 @@ class Player
     {
         system(osClearCommand);
         string n;
+        cout << "Welcome to YaHooBa Game! \n \n";
         cout << "Enter your name: "; getline(cin, n); cout << "\n";
         name = n;
     }
