@@ -856,12 +856,14 @@ public:
 private:
     // A function that prints out the game's winner.
     void announceTheWinner(Player *player, Player *computer) {
+
+        system(osClearCommand);
         if (player->score > computer->score)
-            cout << "Congratulations to " << player->name << ", you have won the game" << endl;
+            cout << "Congratulations to " << player->name << ", you have won the game \n" << endl;
         else if (player->score == computer->score) 
-            cout << "The game has ended in a draw" << endl;
+            cout << "The game has ended in a draw \n" << endl;
         else 
-            cout << "Sorry " << player->name ", but the opponent has won the game" << endl;;
+            cout << "Sorry " << player->name << ", but the opponent has won the game \n" << endl;;
 
     }
 
