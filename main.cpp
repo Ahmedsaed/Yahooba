@@ -9,6 +9,8 @@ using namespace std;
     #define osClearCommand "clear"
 #endif
 
+void displayCards();
+
 class Card
 {
 // base class.
@@ -54,7 +56,6 @@ public:
     {
         cout << name << " is the winner!\n";
     }
-    
 };
 
 // Explosive Type (High damage 250-350 , medium health 300-450) --------------------------------------------------
@@ -549,7 +550,7 @@ public:
 // Warriors ~END~ -------------------------------------------------------------------------
 
 
-//Class of the User  ~start~ ---------------------------------------------------------------------------
+//Demo of Users class ~start~ ---------------------------------------------------------------------------
 class Player
 {
     public:
@@ -568,7 +569,7 @@ class Player
     {
         system(osClearCommand);
         string n;
-        cout << "Welcome to YaHooBa Game! \n \n";
+        cout << "Welcome to YaHooba!\n";
         cout << "Enter your name: "; getline(cin, n); cout << "\n";
         name = n;
     }
@@ -581,9 +582,10 @@ class Player
 
     // The user gets to pick his cards:
     void pickCards(Player user) {
-        int i = 0, num = 0;
+        int i = 0, num = 0, temp = 0;
         while(i < maxNCards)
         {
+            int garbage = 0;
             cout << "Pick card number: ";
             cin >> num;
             if(num > 0 && num < 21)
@@ -593,8 +595,32 @@ class Player
                     cout << "You've already picked this monster, please pick another one!\n";
                     continue;
                 }
-                switchFunction(num,user,i);
-                i++;
+                else
+                {
+                    cout << "(1) View card details.\n";
+                    cout << "(2) Confirm card choice.\n";
+                    while(true)
+                    {
+                        cout << "Enter your choice: ";
+                        cin >> temp;
+                        if(temp == 1) {
+                            switchFunction(num,user,i,temp);
+                            cout << "Next? (1): ";
+                            while(garbage != 1) cin >> garbage;
+                            system(osClearCommand);
+                            displayCards();
+                            if (temp == 2) i++;
+                            break;
+                        } else if (temp == 2) {
+                            switchFunction(num,user,i,temp);
+                            system(osClearCommand);
+                            displayCards();
+                            if (temp == 2) i++;
+                            break;
+                        }
+                        cout << "Please choose correctly.\n\n";
+                    }
+                }
             }
             else { cout << "You are out of boundaries! Choose again.\n"; }
         }
@@ -612,153 +638,273 @@ class Player
                 {   
                     continue;
                 }
-                switchFunction(num,user,i);
+                switchFunction(num,user,i,2);
                 i++;
             }
         }
     }
 
-    void switchFunction(int num, Player& user, int i)
+    void switchFunction(int num, Player& user, int i, int temp)
     {
         switch (num)
         {
             case 1:
             {
-                user.pickedCards[1] = 1;
                 Card *bomba = new Bomba();
+                if(temp == 1) 
+                {
+                    bomba->getStats();
+                    delete bomba;
+                    break;
+                }
+                user.pickedCards[1] = 1;
                 user.cards[i] = *bomba;
                 break;
             }
             case 2:
             {
-                user.pickedCards[2] = 1;
                 Card *nuker = new Nuker();
+                if(temp == 1) 
+                {
+                    nuker->getStats();
+                    delete nuker;
+                    break;
+                }
+                user.pickedCards[2] = 1;
                 user.cards[i] = *nuker;
                 break;
             }
             case 3:
             {
-                user.pickedCards[3] = 1;
                 Card *detonator = new Detonator();
+                if(temp == 1) 
+                {
+                    detonator->getStats();
+                    delete detonator;
+                    break;
+                }
+                user.pickedCards[3] = 1;
                 user.cards[i] = *detonator;
                 break;
             }
             case 4:
             {
-                user.pickedCards[4] = 1;
                 Card *pop = new Pop();
+                if(temp == 1) 
+                {
+                    pop->getStats();
+                    delete pop;
+                    break;
+                }
+                user.pickedCards[4] = 1;
                 user.cards[i] = *pop;
                 break;
             }
             case 5:
             {
-                user.pickedCards[5] = 1;
                 Card *eradicator = new Eradicator();
+                if(temp == 1) 
+                {
+                    eradicator->getStats();
+                    delete eradicator;
+                    break;
+                }
+                user.pickedCards[5] = 1;
                 user.cards[i] = *eradicator;
                 break;
             }   
             case 6:
             {
-                user.pickedCards[6] = 1;
                 Card *yogi = new Yogi();
+                if(temp == 1) 
+                {
+                    yogi->getStats();
+                    delete yogi;
+                    break;
+                }
+                user.pickedCards[6] = 1;
                 user.cards[i] = *yogi;
                 break;
             }
             case 7:
             {
-                user.pickedCards[7] = 1;
                 Card *gogo = new GoGo();
+                if(temp == 1) 
+                {
+                    gogo->getStats();
+                    delete gogo;
+                    break;
+                }
+                user.pickedCards[7] = 1;
                 user.cards[i] = *gogo;
                 break;
             }
             case 8:
             {
-                user.pickedCards[8] = 1;
                 Card *leo = new Leo(); 
+                if(temp == 1) 
+                {
+                    leo->getStats();
+                    delete leo;
+                    break;
+                }
+                user.pickedCards[8] = 1;
                 user.cards[i] = *leo;
                 break;
             }
             case 9:
             {
-                 user.pickedCards[9] = 1;
                  Card *avatar = new Avatar();
+                 if(temp == 1) 
+                {
+                    avatar->getStats();
+                    delete avatar;
+                    break;
+                }
+                 user.pickedCards[9] = 1;
                  user.cards[i] = *avatar;
                  break;
             }
             case 10:
             {
-                user.pickedCards[10] = 1;
                 Card *ventura = new Ventura();
+                if(temp == 1) 
+                {
+                    ventura->getStats();
+                    delete ventura;
+                    break;
+                }
+                user.pickedCards[10] = 1;
                 user.cards[i] = *ventura;
                 break;
             }
             case 11:
             {
-                user.pickedCards[11] = 1;
                 Card *golem = new Golem();
+                if(temp == 1) 
+                {
+                    golem->getStats();
+                    delete golem;
+                    break;
+                }
+                user.pickedCards[11] = 1;
                 user.cards[i] = *golem;
                 break;
             }
             case 12:
             {
-                user.pickedCards[12] = 1;
                 Card *yeti = new Yeti();
+                if(temp == 1) 
+                {
+                    yeti->getStats();
+                    delete yeti;
+                    break;
+                }
+                user.pickedCards[12] = 1;
                 user.cards[i] = *yeti;
                 break;
             }
             case 13:
             {
-                user.pickedCards[13] = 1;
                 Card *grimm = new Grimm();
+                if(temp == 1) 
+                {
+                    grimm->getStats();
+                    delete grimm;
+                    break;
+                }
+                user.pickedCards[13] = 1;
                 user.cards[i] = *grimm;
                 break;
             }
             case 14:
             {
-                user.pickedCards[14] = 1;
                 Card *pekka = new PEKKA();
+                if(temp == 1) 
+                {
+                    pekka->getStats();
+                    delete pekka;
+                    break;
+                }
+                user.pickedCards[14] = 1;
                 user.cards[i] = *pekka;
                 break;
             }
             case 15:
             {
-                user.pickedCards[15] = 1;
                 Card *colossal = new Colossal;
+                if(temp == 1) 
+                {
+                    colossal->getStats();
+                    delete colossal;
+                    break;
+                }
+                user.pickedCards[15] = 1;
                 user.cards[i] = *colossal;
                 break;
             }
             case 16:
             {
-                user.pickedCards[16] = 1;
                 Card *ethan = new Ethan;
+                if(temp == 1) 
+                {
+                    ethan->getStats();
+                    delete ethan;
+                    break;
+                }
+                user.pickedCards[16] = 1;
                 user.cards[i] = *ethan;
                 break;
             }
             case 17:
             {
-                user.pickedCards[17] = 1;
                 Card *harold = new Harold;
+                if(temp == 1) 
+                {
+                    harold->getStats();
+                    delete harold;
+                    break;
+                }
+                user.pickedCards[17] = 1;
                 user.cards[i] = *harold;
                 break;
             }
             case 18:
             {
-                user.pickedCards[18] = 1;
                 Card *kane = new Kane;
+                if(temp == 1) 
+                {
+                    kane->getStats();
+                    delete kane;
+                    break;
+                }
+                user.pickedCards[18] = 1;
                 user.cards[i] = *kane;
                 break;
             }
             case 19:
             {
-                user.pickedCards[19] = 1;
                 Card *lewis = new Lewis;
+                if(temp == 1) 
+                {
+                    lewis->getStats();
+                    delete lewis;
+                    break;
+                }
+                user.pickedCards[19] = 1;
                 user.cards[i] = *lewis;
                 break;
             }
             case 20:
             {
-                user.pickedCards[20] = 1;
                 Card *liam = new Liam;
+                if(temp == 1) 
+                {
+                    liam->getStats();
+                    delete liam;
+                    break;
+                }
+                user.pickedCards[20] = 1;
                 user.cards[i] = *liam;
                 break;
             }
@@ -827,8 +973,6 @@ public:
 
         player.pickCards(player);
         computer.pickRandomCards(computer);
-
-        continueGame();
         
         while (nRounds--)
         {
@@ -853,21 +997,23 @@ public:
 
         announceTheWinner(&player, &computer);
     }
-private:
+    private:
+
     // A function that prints out the game's winner.
     void announceTheWinner(Player *player, Player *computer) {
 
         system(osClearCommand);
+
         if (player->score > computer->score)
-            cout << "Congratulations to " << player->name << ", you have won the game \n" << endl;
+            cout << "Congratulations to you, " << player->name << ", you've won the game. \n" << endl;
         else if (player->score == computer->score) 
-            cout << "The game has ended in a draw \n" << endl;
+            cout << "The game has ended in a draw. \n" << endl;
         else 
-            cout << "Sorry " << player->name << ", but the opponent has won the game \n" << endl;;
+            cout << "Sorry, " << player->name << ", the opponent has won the game. \n" << endl;;
 
     }
 
-    // A function that calculates the winner of the round by checking the last survivor of the duel.
+    // A function that calculates the winner of the by checking the last survivor of the duel.
     int calculateWinner(Card* playerCard, Card* computerCard) {
         int winner = 0;
 
@@ -900,21 +1046,10 @@ private:
 
     // A function that asks the user if he wants to play the game.
     void continueGame() {
-        cout << endl << "Enter Y/y to continue: ";
+        cout << endl << "Enter Y to continue: ";
         char ch;
         cin >> ch;
         if (ch != 'y' && ch != 'Y') exit(0);
-    }
-
-    // A function that displays the game's cards.
-    void displayCards()
-    {
-        system(osClearCommand);
-        cout << "Available Cards:\n (1) Bomba, (2) Nuker, (3) Detonator, (4) Pop, (5) Eradicator "
-            << "(6) Yogi, (7) GoGo, (8) Leo, (9) Avatar, (10) Ventura\n (11) Golem, (12) Yeti, (13) Grimm "
-            << "(14) PEKKA, (15) Colossal, (16) Ethan, (17) Harold, (18) Kane, (19) Lewis, (20) Liam\n\n"
-            << "Choose 5 cards\n"
-            << "--------------\n";
     }
 };
 
@@ -925,3 +1060,14 @@ int main()
     game.run();
 } 
 // end of main
+
+// A function that displays the game's cards.
+void displayCards()
+{
+    system(osClearCommand);
+    cout << "Available Cards:\n (1) Bomba, (2) Nuker, (3) Detonator, (4) Pop, (5) Eradicator "
+        << "(6) Yogi, (7) GoGo, (8) Leo, (9) Avatar, (10) Ventura\n (11) Golem, (12) Yeti, (13) Grimm "
+        << "(14) PEKKA, (15) Colossal, (16) Ethan, (17) Harold, (18) Kane, (19) Lewis, (20) Liam\n\n"
+        << "Choose 5 cards\n"
+        << "--------------\n";
+}
