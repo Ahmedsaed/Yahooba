@@ -7,19 +7,24 @@
 #include <QPushButton>
 #include <iostream>
 #include "game.h"
+#include <QGuiApplication>
+#include <QScreen>
 
 extern Game * game;
 
 WelcomeScreen::WelcomeScreen(QWidget *parent)
 {
     scene = new QGraphicsScene();
-    scene->setSceneRect(0,0,800,600);
-    scene->setBackgroundBrush(QBrush(QImage(":/images/background.jpg")));
-
+    QScreen *screen = QGuiApplication::primaryScreen();
+    QRect  screenGeometry = screen->geometry();
+    int height = screenGeometry.height();
+    int width = screenGeometry.width();
+    scene->setSceneRect(0,0,width,height);
+    scene->setBackgroundBrush(QBrush(QImage(":/images/background.jpg").scaledToWidth(width)));
     setScene(scene);
+    setWindowState(Qt::WindowFullScreen);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setFixedSize(800,600);
 
     welcomeText = new QGraphicsTextItem();
     welcomeText->setPlainText("Welcome To Yahooba");
@@ -45,12 +50,11 @@ WelcomeScreen::WelcomeScreen(QWidget *parent)
                   scene->height()/2-submitBtnProxy->boundingRect().height()/2);
 
     QObject::connect(submitBtn, &QPushButton::clicked, this, &WelcomeScreen::setPlayerName);
-    show();
 }
 
 void WelcomeScreen::setPlayerName()
 {
     game->setPlayerName(userNameLineEdit->text());
     hide();
-    game->show();
+    game->deck->show();
 }

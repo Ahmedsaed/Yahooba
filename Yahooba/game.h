@@ -4,6 +4,8 @@
 #include<QGraphicsView>
 #include "card.h"
 #include <QString>
+#include "player.h"
+#include "deck.h"
 
 class Game : public QGraphicsView
 {
@@ -12,8 +14,11 @@ public:
 
     QGraphicsScene *scene;
     Card *card;
-    QString playerName;
-    QString getPlayerName() const;
+    Player *player;
+    Deck *deck;
+
+    const int nRounds = 5;
+
     void setPlayerName(const QString &newPlayerName);
 };
 

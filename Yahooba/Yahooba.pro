@@ -12,13 +12,17 @@ CONFIG += console
 
 SOURCES += \
     card.cpp \
+    deck.cpp \
     game.cpp \
     main.cpp \
+    player.cpp \
     welcomescreen.cpp
 
 HEADERS += \
     card.h \
+    deck.h \
     game.h \
+    player.h \
     welcomescreen.h
 
 # Default rules for deployment.
