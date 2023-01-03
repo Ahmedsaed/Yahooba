@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>avatar.jpeg</file>
+        <file>bomba.jpeg</file>
+        <file>colossal.jpeg</file>
+        <file>detonator.jpeg</file>
+        <file>eradicator.jpeg</file>
+        <file>ethan.jpeg</file>
+        <file>gogo.jpeg</file>
+        <file>harold.jpeg</file>
+        <file>kane.jpeg</file>
+        <file>leo.jpeg</file>
+        <file>lewis.jpeg</file>
+        <file>liam.jpeg</file>
+        <file>nuker.jpeg</file>
+        <file>pop.jpeg</file>
+        <file>ventura.jpeg</file>
+        <file>background.jpg</file>
+    </qresource>
+</RCC>
