@@ -11,6 +11,8 @@ using namespace std;
 
 void displayCards();
 
+void displayCards();
+
 class Card
 {
 // base class.
@@ -494,8 +496,10 @@ class Player
     // The user gets to pick his cards:
     void pickCards(Player user) {
         int i = 0, num = 0, temp = 0;
+        int i = 0, num = 0, temp = 0;
         while(i < maxNCards)
         {
+            int garbage = 0;
             int garbage = 0;
             cout << "Pick card number: ";
             cin >> num;
@@ -510,20 +514,14 @@ class Player
                 {
                     cout << "(1) View card details.\n";
                     cout << "(2) Confirm card choice.\n";
-                    while(true)
+                    while(1)
                     {
                         cout << "Enter your choice: ";
                         cin >> temp;
-                        if(temp == 1) {
+                        if(temp == 1 || temp == 2) {
                             switchFunction(num,user,i,temp);
                             cout << "Next? (1): ";
                             while(garbage != 1) cin >> garbage;
-                            system(osClearCommand);
-                            displayCards();
-                            if (temp == 2) i++;
-                            break;
-                        } else if (temp == 2) {
-                            switchFunction(num,user,i,temp);
                             system(osClearCommand);
                             displayCards();
                             if (temp == 2) i++;
@@ -916,11 +914,11 @@ public:
         system(osClearCommand);
 
         if (player->score > computer->score)
-            cout << "Congratulations to you, " << player->name << ", you've won the game. \n" << endl;
+            cout << "Congratulations to you, " << player->name << " , you've won the game. \n" << endl;
         else if (player->score == computer->score) 
             cout << "The game has ended in a draw. \n" << endl;
         else 
-            cout << "Sorry, " << player->name << ", the opponent has won the game. \n" << endl;;
+            cout << "Sorry, " << player->name << " , the opponent has won the game. \n" << endl;;
 
     }
 
