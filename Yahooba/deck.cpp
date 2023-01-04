@@ -4,32 +4,21 @@
 #include <QScreen>
 #include <QGuiApplication>
 #include "game.h"
+#include <QGraphicsTextItem>
+#include <round.h>
 
 extern Game * game;
 
-Deck::Deck(QWidget *parent)
+Deck::Deck()
 {
-    cards["bomba"] = new Card(0, "bomba");
-    cards["avatar"] = new Card(0, "avatar");
-    cards["colossal"] = new Card(0, "colossal");
-    cards["detonator"] = new Card(0, "detonator");
-    cards["eradicator"] = new Card(0, "eradicator");
-    cards["ethan"] = new Card(0, "ethan");
-    cards["gogo"] = new Card(0, "gogo");
-    cards["harold"] = new Card(0, "harold");
-    cards["leo"] = new Card(0, "leo");
-    cards["kane"] = new Card(0, "kane");
-    cards["liam"] = new Card(0, "liam");
-    cards["lewis"] = new Card(0, "lewis");
-    cards["nuker"] = new Card(0, "nuker");
-    cards["pop"] = new Card(0, "pop");
-    cards["ventura"] = new Card(0, "ventura");
+    state = 1;
+    initCards();
 
     scene = new QGraphicsScene();
     QScreen *screen = QGuiApplication::primaryScreen();
     QRect  screenGeometry = screen->geometry();
-    int height = screenGeometry.height();
-    int width = screenGeometry.width();
+    height = screenGeometry.height();
+    width = screenGeometry.width();
     scene->setSceneRect(0,0,width,height);
     scene->setBackgroundBrush(QBrush(QImage(":/images/background.jpg").scaledToWidth(width)));
     setScene(scene);
@@ -37,15 +26,73 @@ Deck::Deck(QWidget *parent)
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
+    QGraphicsTextItem *text = new QGraphicsTextItem();
+    text->setPlainText("Pick 5 cards to continue");
+    text->setDefaultTextColor(Qt::red);
+    text->setFont(QFont("Arial Black", 24, 80));
+    text->setPos(30,30);
 
-    int x = 0, y = 0;
+    scene->addItem(text);
+
+    displayCards();
+}
+
+Deck::~Deck()
+{
+    state = 0;
+}
+
+void Deck::handleMouseClick(Card *card)
+{
+    if (card->picked) return;
+    card->picked = true;
+
+    int result = game->player->addCard(card);
+    int x = width/2 - card->boundingRect().width() * card->scaleRatio*game->nRounds/2;
+    int y = height - card->boundingRect().height() * card->scaleRatio;
+    card->setPos(x+((result-1) * card->boundingRect().width() * card->scaleRatio), y);
+    if (result == 5) startRound();
+}
+
+void Deck::initCards()
+{
+    cards["bomba"] = new Card("bomba");
+    cards["avatar"] = new Card("avatar");
+    cards["colossal"] = new Card("colossal");
+    cards["detonator"] = new Card("detonator");
+    cards["eradicator"] = new Card("eradicator");
+    cards["ethan"] = new Card("ethan");
+    cards["gogo"] = new Card("gogo");
+    cards["harold"] = new Card("harold");
+    cards["leo"] = new Card("leo");
+    cards["kane"] = new Card("kane");
+    cards["liam"] = new Card("liam");
+    cards["lewis"] = new Card("lewis");
+    cards["nuker"] = new Card("nuker");
+    cards["pop"] = new Card("pop");
+    cards["ventura"] = new Card("ventura");
+    cards["yeti"] = new Card("yeti");
+}
+
+void Deck::displayCards()
+{
+    int x = 100, y = 100;
     for(auto &card : cards) {
         card->setPos(x, y);
         scene->addItem(card);
-        if (x>=700) {
-            x = 0;
+        if (x>=width-100-card->boundingRect().width()*card->scaleRatio) {
+            x = 100;
             y += card->boundingRect().height()*card->scaleRatio;
         }
         else x += card->boundingRect().width()*card->scaleRatio;
     }
+}
+
+void Deck::startRound()
+{
+    state = 0;
+    hide();
+    game->op = new Opponent();
+    game->round = new Round();
+    game->round->show();
 }

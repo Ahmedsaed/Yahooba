@@ -9,7 +9,7 @@
 class WelcomeScreen : public QGraphicsView
 {
 public:
-    WelcomeScreen(QWidget *parent=0);
+    WelcomeScreen();
 
     QGraphicsScene *scene;
     QGraphicsTextItem *welcomeText;

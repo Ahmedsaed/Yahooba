@@ -9,10 +9,11 @@
 #include "game.h"
 #include <QGuiApplication>
 #include <QScreen>
+#include <deck.h>
 
 extern Game * game;
 
-WelcomeScreen::WelcomeScreen(QWidget *parent)
+WelcomeScreen::WelcomeScreen()
 {
     scene = new QGraphicsScene();
     QScreen *screen = QGuiApplication::primaryScreen();
@@ -56,5 +57,6 @@ void WelcomeScreen::setPlayerName()
 {
     game->setPlayerName(userNameLineEdit->text());
     hide();
+    game->deck = new Deck();
     game->deck->show();
 }

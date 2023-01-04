@@ -1,12 +1,13 @@
 #include "card.h"
+#include "game.h"
+#include <QDebug>
 
-Card::Card(QGraphicsItem *parent, QString name): QObject(), QGraphicsPixmapItem(parent) {
+extern Game * game;
+
+Card::Card(QString name, QGraphicsItem *parent): QGraphicsPixmapItem(parent) {
     setStats(name);
-
-    setPos(10,10);
     setPixmap(QPixmap(":/images/"+name+".jpeg"));
     setScale(scaleRatio);
-
 }
 
 int Card::getHealth() const
@@ -47,7 +48,7 @@ void Card::setStats(QString name)
         setDamage(410);
         setType("Explosive");
     }
-    else if (name == "Yogi") {
+    else if (name == "yogi") {
         setHealth(350);
         setDamage(189);
         setType("Hunter");
@@ -57,7 +58,7 @@ void Card::setStats(QString name)
         setDamage(200);
         setType("Hunter");
     }
-    else if (name == "Leo") {
+    else if (name == "leo") {
         setHealth(390);
         setDamage(193);
         setType("Hunter");
@@ -77,7 +78,7 @@ void Card::setStats(QString name)
         setDamage(50);
         setType("Giant");
     }
-    else if (name == "Yeti") {
+    else if (name == "yeti") {
         setHealth(1400);
         setDamage(55);
         setType("Giant");
@@ -122,6 +123,18 @@ void Card::setStats(QString name)
         setDamage(200);
         setType("Warrior");
     }
+    else {
+        qDebug() << "no matching character" << Qt::endl;
+        qDebug() << name;
+    }
+}
+
+void Card::mousePressEvent(QGraphicsSceneMouseEvent *event)
+{
+    if (game->deck->state)
+        game->deck->handleMouseClick(this);
+    else if (game->round->state != 0)
+        game->round->handleMouseClick(this);
 }
 
 int Card::getDamage() const

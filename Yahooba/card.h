@@ -1,15 +1,14 @@
 #ifndef CARD_H
 #define CARD_H
 
-#include <QObject>
 #include <QString>
+#include <QKeyEvent>
 #include <QGraphicsPixmapItem>
 
-class Card : public QObject, public QGraphicsPixmapItem
+class Card : public QGraphicsPixmapItem
 {
-    Q_OBJECT
 public:
-    Card(QGraphicsItem *parent=0, QString name="");
+    Card(QString name="", QGraphicsItem *parent=0);
 
     QString getName() const;
     void setName(const QString &newName);
@@ -26,6 +25,9 @@ public:
     void setStats(QString name);
 
     double scaleRatio = 0.2;
+    bool picked = false;
+    int owner; // 0 -> player, 1 -> opponent
+    void mousePressEvent(QGraphicsSceneMouseEvent * event);
 
 private:
     QString name="", type="";

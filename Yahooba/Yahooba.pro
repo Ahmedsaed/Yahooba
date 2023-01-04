@@ -15,14 +15,18 @@ SOURCES += \
     deck.cpp \
     game.cpp \
     main.cpp \
+    opponent.cpp \
     player.cpp \
+    round.cpp \
     welcomescreen.cpp
 
 HEADERS += \
     card.h \
     deck.h \
     game.h \
+    opponent.h \
     player.h \
+    round.h \
     welcomescreen.h
 
 # Default rules for deployment.
