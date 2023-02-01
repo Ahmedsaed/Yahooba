@@ -14,6 +14,7 @@ int Player::addCard(Card *card)
     cards[currentCard].setHealth(card->getHealth());
     cards[currentCard].setName(card->getName());
     cards[currentCard].setType(card->getType());
+    cards[currentCard].owner = 0;
 
     return ++currentCard;
 }

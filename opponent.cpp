@@ -24,6 +24,7 @@ void Opponent::chooseCards()
             cards[i].setType(card->getType());
             cards[i].setDamage(card->getDamage());
             cards[i].setHealth(card->getHealth());
+            cards[i].owner = 1;
             i++;
         }
     }

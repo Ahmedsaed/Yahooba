@@ -42,7 +42,6 @@ void Round::displayCards()
         int x = game->width/2 - card->boundingRect().width()*card->scaleRatio*(game->nRounds)/2;
         int y = game->height - card->boundingRect().height()*card->scaleRatio;
         card->setPos(x+(i*card->boundingRect().width()*card->scaleRatio), y);
-        card->owner = 0;
         game->scene->addItem(card);
     }
 
@@ -52,18 +51,18 @@ void Round::displayCards()
         int x = game->width/2 - card->boundingRect().width()*card->scaleRatio*(game->nRounds)/2;
         int y = 0;
         card->setPos(x+(i*card->boundingRect().width()*card->scaleRatio), y);
-        card->owner = 1;
         game->scene->addItem(card);
     }
 }
 
-void Round::handleMouseClick(Card *playerCard)
+void Round::handleMouseClick(Card *selectedCard)
 {
     if (state != 1) return;
+    if (selectedCard->owner == 1) return;
     state = 2;
-    if (!playerCard->picked) {
+    if (!selectedCard->picked) {
         Card *opCard;
-        moveCard(playerCard);
+        moveCard(selectedCard);
         while(true) {
             int n = rand() % game->nRounds;
             opCard = &game->op->cards[n];
@@ -78,7 +77,7 @@ void Round::handleMouseClick(Card *playerCard)
         game->scene->removeItem(text);
 
         QTimer * timer = new QTimer();
-        QObject::connect(timer, &QTimer::timeout, this, [&, playerCard, opCard]{ playRound(playerCard, opCard); });
+        QObject::connect(timer, &QTimer::timeout, this, [&, selectedCard, opCard]{ playRound(selectedCard, opCard); });
         timer->start(1000);
         timer->setSingleShot(true);
     }
