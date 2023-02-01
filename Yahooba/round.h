@@ -9,8 +9,6 @@ class Round : public QGraphicsView
 public:
     Round();
     int state; // 0 -> scene not active, 1 -> scene is active and listning to click events, 2 -> handling a click event
-    QGraphicsScene *scene;
-    int width, height;
     QGraphicsTextItem *header;
     QGraphicsTextItem *text;
 

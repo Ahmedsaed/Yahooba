@@ -2,21 +2,22 @@
 #define GAME_H
 #include<QWidget>
 #include<QGraphicsView>
-#include "card.h"
 #include <QString>
 #include "player.h"
 #include "deck.h"
 #include "round.h"
 #include "opponent.h"
+#include "welcomescreen.h"
 
 class Game : public QGraphicsView
 {
 public:
     Game();
 
+    int width, height;
     Opponent *op;
     QGraphicsScene *scene;
-    Card *card;
+    QScreen *screen;
     Player *player;
     Deck *deck;
     Round *round;
@@ -25,6 +26,12 @@ public:
     const int nRounds = 5;
 
     void setPlayerName(const QString &newPlayerName);
+    void showWelcomeScreen();
+    void showGameDeck();
+    void clearScene();
+
+private:
+    WelcomeScreen *welcomScreen;
 };
 
 #endif // GAME_H

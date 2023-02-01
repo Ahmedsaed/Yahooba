@@ -11,7 +11,6 @@ class WelcomeScreen : public QGraphicsView
 public:
     WelcomeScreen();
 
-    QGraphicsScene *scene;
     QGraphicsTextItem *welcomeText;
     QLineEdit *userNameLineEdit;
     QPushButton *submitBtn;

@@ -14,25 +14,13 @@ Deck::Deck()
     state = 1;
     initCards();
 
-    scene = new QGraphicsScene();
-    QScreen *screen = QGuiApplication::primaryScreen();
-    QRect  screenGeometry = screen->geometry();
-    height = screenGeometry.height();
-    width = screenGeometry.width();
-    scene->setSceneRect(0,0,width,height);
-    scene->setBackgroundBrush(QBrush(QImage(":/images/background.jpg").scaledToWidth(width)));
-    setScene(scene);
-    setWindowState(Qt::WindowFullScreen);
-    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-
     QGraphicsTextItem *text = new QGraphicsTextItem();
     text->setPlainText("Pick 5 cards to continue");
     text->setDefaultTextColor(Qt::red);
     text->setFont(QFont("Arial Black", 24, 80));
     text->setPos(30,30);
 
-    scene->addItem(text);
+    game->scene->addItem(text);
 
     displayCards();
 }
@@ -48,8 +36,8 @@ void Deck::handleMouseClick(Card *card)
     card->picked = true;
 
     int result = game->player->addCard(card);
-    int x = width/2 - card->boundingRect().width() * card->scaleRatio*game->nRounds/2;
-    int y = height - card->boundingRect().height() * card->scaleRatio;
+    int x = game->width/2 - card->boundingRect().width() * card->scaleRatio*game->nRounds/2;
+    int y = game->height - card->boundingRect().height() * card->scaleRatio;
     card->setPos(x+((result-1) * card->boundingRect().width() * card->scaleRatio), y);
     if (result == 5) startRound();
 }
@@ -79,8 +67,8 @@ void Deck::displayCards()
     int x = 100, y = 100;
     for(auto &card : cards) {
         card->setPos(x, y);
-        scene->addItem(card);
-        if (x>=width-100-card->boundingRect().width()*card->scaleRatio) {
+        game->scene->addItem(card);
+        if (x >= game->width-100-card->boundingRect().width()*card->scaleRatio) {
             x = 100;
             y += card->boundingRect().height()*card->scaleRatio;
         }
@@ -91,8 +79,7 @@ void Deck::displayCards()
 void Deck::startRound()
 {
     state = 0;
-    hide();
+    game->clearScene();
     game->op = new Opponent();
     game->round = new Round();
-    game->round->show();
 }

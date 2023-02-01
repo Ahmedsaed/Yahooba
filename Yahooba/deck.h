@@ -8,9 +8,7 @@ class Deck : public QGraphicsView
 public:
     Deck();
     ~Deck();
-    QGraphicsScene *scene;
     QMap<QString, Card*> cards;
-    int width, height;
     bool state;
 
     void handleMouseClick(Card *card);
