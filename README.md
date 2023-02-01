@@ -4,7 +4,7 @@ Yahooba is a card game similar to yogi yo
 
 This was our final project for CS201 object oriented programming course 
 
-The `main` branch contains a text based implementation of the game
+The `main` branch contains a text based proof-of-concept implementation of the game
 
 Switch to the `gui` branch for the GUI implementation of the game
 
