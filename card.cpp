@@ -6,7 +6,7 @@ extern Game * game;
 
 Card::Card(QString name, QGraphicsItem *parent): QGraphicsPixmapItem(parent) {
     setStats(name);
-    setPixmap(QPixmap(":/images/"+name+".jpeg"));
+    setPixmap(QPixmap(":/Assets/Images/"+name+".jpeg"));
     setScale(scaleRatio);
 }
 

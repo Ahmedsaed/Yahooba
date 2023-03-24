@@ -1,22 +1,22 @@
 <RCC>
-    <qresource prefix="/images">
-        <file>avatar.jpeg</file>
-        <file>bomba.jpeg</file>
-        <file>colossal.jpeg</file>
-        <file>detonator.jpeg</file>
-        <file>eradicator.jpeg</file>
-        <file>ethan.jpeg</file>
-        <file>gogo.jpeg</file>
-        <file>harold.jpeg</file>
-        <file>kane.jpeg</file>
-        <file>leo.jpeg</file>
-        <file>lewis.jpeg</file>
-        <file>liam.jpeg</file>
-        <file>nuker.jpeg</file>
-        <file>pop.jpeg</file>
-        <file>ventura.jpeg</file>
-        <file>background.jpg</file>
-        <file>yeti.jpeg</file>
-        <file>card_back.jpg</file>
+    <qresource prefix="/Assets">
+        <file>Images/avatar.jpeg</file>
+        <file>Images/background.jpg</file>
+        <file>Images/bomba.jpeg</file>
+        <file>Images/card_back.jpg</file>
+        <file>Images/colossal.jpeg</file>
+        <file>Images/detonator.jpeg</file>
+        <file>Images/eradicator.jpeg</file>
+        <file>Images/ethan.jpeg</file>
+        <file>Images/gogo.jpeg</file>
+        <file>Images/harold.jpeg</file>
+        <file>Images/kane.jpeg</file>
+        <file>Images/leo.jpeg</file>
+        <file>Images/lewis.jpeg</file>
+        <file>Images/liam.jpeg</file>
+        <file>Images/nuker.jpeg</file>
+        <file>Images/pop.jpeg</file>
+        <file>Images/ventura.jpeg</file>
+        <file>Images/yeti.jpeg</file>
     </qresource>
 </RCC>

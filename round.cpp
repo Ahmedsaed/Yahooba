@@ -38,7 +38,7 @@ void Round::displayCards()
 {
     for(int i = 0; i < game->nRounds; i++) {
         Card *card = &game->player->cards[i];
-        card->setPixmap(QPixmap(":/images/"+card->getName()+".jpeg"));
+        card->setPixmap(QPixmap(":/Assets/Images/"+card->getName()+".jpeg"));
         int x = game->width/2 - card->boundingRect().width()*card->scaleRatio*(game->nRounds)/2;
         int y = game->height - card->boundingRect().height()*card->scaleRatio;
         card->setPos(x+(i*card->boundingRect().width()*card->scaleRatio), y);
@@ -47,7 +47,7 @@ void Round::displayCards()
 
     for(int i = 0; i < game->nRounds; i++) {
         Card *card = &game->op->cards[i];
-        card->setPixmap(QPixmap(":/images/card_back.jpg").scaledToWidth(QPixmap(":/images/gogo.jpeg").width()));
+        card->setPixmap(QPixmap(":/Assets/Images/card_back.jpg").scaledToWidth(QPixmap(":/Assets/Images/gogo.jpeg").width()));
         int x = game->width/2 - card->boundingRect().width()*card->scaleRatio*(game->nRounds)/2;
         int y = 0;
         card->setPos(x+(i*card->boundingRect().width()*card->scaleRatio), y);
@@ -90,7 +90,7 @@ void Round::moveCard(Card *card)
     if (card->owner == 0) x -= 200;
     else {
         x += 200;
-        card->setPixmap(QPixmap(":/images/"+card->getName()+".jpeg"));
+        card->setPixmap(QPixmap(":/Assets/Images/"+card->getName()+".jpeg"));
     }
     card->picked = true;
     card->setPos(x, y);

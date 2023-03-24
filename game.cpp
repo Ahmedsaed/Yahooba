@@ -16,7 +16,7 @@ Game::Game() : nRounds(5)
     height = screenGeometry.height();
     width = screenGeometry.width();
     scene->setSceneRect(0,0,width,height);
-    scene->setBackgroundBrush(QBrush(QImage(":/images/background.jpg").scaledToWidth(width)));
+    scene->setBackgroundBrush(QBrush(QImage(":/Assets/Images/background.jpg").scaledToWidth(width)));
     setScene(scene);
     setWindowState(Qt::WindowFullScreen);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
